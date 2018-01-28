@@ -6,7 +6,6 @@
 </script>
 <template>
   <div id='app'>
-    <p>Welcome to Vue SSR.</p>
     <router-view></router-view>
   </div>
 </template>
@@ -35,7 +34,7 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
   body
     font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
-    background-color lighten(#eceef1, 20%)
+    background-color lighten(#eceef1, 30%)
     // background-color #fff
     font-size .24rem
     color #34495e
@@ -60,6 +59,9 @@
 
   ul, ol, li {
     list-style: none;
+  }
+  a {
+    text-decoration: none;
   }
 
 </style>
