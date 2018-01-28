@@ -23,6 +23,7 @@ export default {
     const style = {
       display: 'inline-flex',
       alignItems: 'center',
+      color: 'rgba(0, 0, 0, .8)',
       borderRadius: '4px',
       backgroundColor: 'rgba(0, 0, 0, .12)',
       margin: '4px',
