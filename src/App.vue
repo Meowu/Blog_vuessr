@@ -20,7 +20,6 @@
     color #34495e
     overflow-y scroll
   #app 
-    font-size 14px
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
     color #2c3e50
