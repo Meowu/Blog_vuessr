@@ -3,13 +3,20 @@ import VChip from '../components/Chip/VChip'
 import VCard from '../views/ArticleCard'
 import VHamburger from './Hamburger'
 import VNav from './Navbar'
+import VLoading from './Loading'
 export default {
   name: 'Hello',
   components: {
     VChip,
     VCard,
     VHamburger,
-    VNav
+    VNav,
+    VLoading
+  },
+  methods: {
+    click() {
+      console.log('clicked.');
+    }
   }
 }
 </script>
@@ -20,7 +27,7 @@ export default {
     <v-card />
     <v-card />
     <v-card />
-    <v-nav />
+    <v-nav /><v-loading @click="click" />
   </div>
 </template>
 <style lang="stylus" scoped>

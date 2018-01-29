@@ -5,7 +5,6 @@ export default {
   // functional: true,
   methods: {
     genHeader(h, blocks) {
-      // const children = blocks.map(block => h('div', null, [h(block)]))
       const Chip = h(VChip, {}, 'Python')
       const style = {
         height: '55px',
