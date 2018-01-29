@@ -2,6 +2,7 @@
 import VChip from '../components/Chip/VChip'
 import VCard from '../views/ArticleCard'
 import VHamburger from './Hamburger'
+import VFullnav from './NavbarFull.js'
 import VNav from './Navbar'
 import VLoading from './Loading'
 export default {
@@ -11,7 +12,8 @@ export default {
     VCard,
     VHamburger,
     VNav,
-    VLoading
+    VLoading,
+    VFullnav
   },
   methods: {
     click() {
@@ -23,16 +25,21 @@ export default {
 
 <template>
   <div id='hello'>
+    <div class="box">
+      <v-nav />
+      <v-fullnav />
+
+    </div>
     <v-card />
     <v-card />
     <v-card />
     <v-card />
-    <v-nav /><v-loading @click="click" />
+    <v-loading @click="click" />
   </div>
 </template>
 <style lang="stylus" scoped>
 #hello
-  width 100
+  width 100%
   padding .333rem
   margin-top 100px
 .nav-toggle
@@ -47,6 +54,22 @@ export default {
     height 2px
     & + .icon-bar 
       margin-top 4px
-  
+@media screen and (min-width: 1024px)
+  #hello 
+    width 960px
+    margin 100px auto 0 
+  .navbar
+    display none 
+    visibility hidden
+  .full-navbar
+    display block
+    width 960px
+    margin 0 auto
+@media screen and (max-width: 768px)
+  .full-navbar 
+    display none
+    visibility hidden
+  .navbar 
+    display block
 </style>
 

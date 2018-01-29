@@ -1,32 +1,35 @@
 import Hamburger from './Hamburger'
 import VChip from './Chip/VChip'
 export default {
-  name: "v-navbar",
+  name: "v-fullnav",
   // functional: true,
   methods: {
     genHeader(h, blocks) {
+      const navs = this.genNav(h, ['首页', '归档', '关于'])
       const Chip = h(VChip, {}, 'Python')
       const style = {
-        height: '55px',
+        height: '80px',
         display: 'flex',
         alignItems: 'center',
-        // padding: '',
+        maxWidth: '960px',
+        margin: '0 auto',
+        padding: '0 0.333rem',
         justifyContent: 'space-between',
         borderBottom: '1px solid #eee',
-        padding: '0 16px'
       }
       return h('header', {
         staticClass: 'v-header',
         style: style
-      }, [h(Hamburger), Chip])
+      }, [h(Hamburger),navs, Chip])
     },
     genNav(h, items) {
       const children = items.map(item => h('a', {
         style: {
           height: '45px',
           lineHeight: '45px',
-          flex: '1 1 auto',
-          fontSize: '15px',
+          // flex: '1 1 auto',
+          marginRight: '40px',
+          fontSize: '16px',
           textAlign: 'center',
           color: 'rgba(0,0,0,.65)'
         },
@@ -38,10 +41,12 @@ export default {
         position: 'relative',
         height: '45px',
         display: 'flex',
+        flex: '1 1 auto',
         alignItems: 'center',
         flexFlow: 'row nowrap',
-        justifyContent: 'space-between',
-        borderBottom: '1px solid #dcdcdc',
+        fontSize: '18px',
+        // justifyContent: 'space-between',
+        // borderBottom: '1px solid #dcdcdc',
         padding: '0 16px'
       }
       return h('nav', {
@@ -57,14 +62,13 @@ export default {
       top: 0,
       left: 0,
       width: '100%',
-      maxWidth: '960px',
       zIndex: 99,
+      boxShadow: '0 0 3px 0 rgba(0,0,0,.3)',
     }
     const header = this.genHeader(h)
-    const navs = this.genNav(h, ['首页', '归档', '关于'])
     return h('div', {
-      staticClass: 'navbar',
+      staticClass: 'full-navbar',
       style: style,
-    }, [header, navs])
+    }, [header])
   }
 }
