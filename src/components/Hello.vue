@@ -6,6 +6,7 @@ import VFullnav from './NavbarFull.js'
 import VNav from './Navbar'
 import VLoading from './Loading'
 import VFooter from './Footer'
+import VList from './List'
 export default {
   name: 'Hello',
   components: {
@@ -15,11 +16,17 @@ export default {
     VNav,
     VLoading,
     VFullnav,
-    VFooter
+    VFooter,
+    VList
   },
   data() {
     return {
-      show: null
+      show: null,
+      category: [
+        {name: 'Node.js', number: 14, id: '1'},
+        {name: 'Python', number: 6, id: '2'},
+        {name: 'Rust', number: 10, id: '3'},
+      ]
     }
   },
   mounted() {
@@ -56,6 +63,7 @@ export default {
     <v-card />
     <v-card />
     <v-card />
+    <v-list :list="category" title='分类查看' />
     <v-loading @click="click" />
     <!-- <v-footer /> -->
   </div>
