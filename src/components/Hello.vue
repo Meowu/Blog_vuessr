@@ -9,6 +9,7 @@ import VFooter from './Footer'
 import VList from './List'
 import TagList from './TagList'
 import VAvatar from './Avatar'
+import VComment from './Comment'
 export default {
   name: 'Hello',
   components: {
@@ -21,7 +22,8 @@ export default {
     VFooter,
     VList,
     TagList,
-    VAvatar
+    VAvatar,
+    VComment
   },
   data() {
     return {
@@ -64,6 +66,7 @@ export default {
       <v-fullnav />
 
     </div>
+    <v-comment />
     <v-card />
     <v-card />
     <v-card />

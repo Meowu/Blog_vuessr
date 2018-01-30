@@ -6,7 +6,7 @@ export default {
     tile: Boolean,
     size: {
       type: [Number, String],
-      default: 48,
+      // default: 48,
       validator: v => !!Number(v)
     },
     round: {
@@ -21,8 +21,8 @@ export default {
 
     const url = props.url || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
     data.style = data.style || {}
-    data.style.height = parseInt(props.size) + 'px'
-    data.style.width = parseInt(props.size) + 'px'
+    data.style.height = props.size ? parseInt(props.size) + 'px' : '1rem'
+    data.style.width = props.size ? parseInt(props.size) + 'px' : '1rem'
     data.style.borderRadius = props.round
     if (props.tile) {
       data.staticClass += ` avatar-tile`
