@@ -1,0 +1,14 @@
+.v-avatar {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+}
+.v-avatar img {
+  height: inherit;
+  width: inherit;
+}
+.avatar-tile {
+  border-radius: 0;
+}
