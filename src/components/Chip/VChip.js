@@ -17,7 +17,7 @@ export default {
         'class': 'chip__content',
         style: style,
       }, children)
-    }
+    },
   },
   render(h) {
     const style = {
@@ -25,7 +25,7 @@ export default {
       alignItems: 'center',
       color: 'rgba(0, 0, 0, .8)',
       borderRadius: '4px',
-      backgroundColor: 'rgba(0, 0, 0, .12)',
+      backgroundColor: 'rgba(75, 76, 71, .1)',
       margin: '4px',
       verticalAlign: 'middle',
       outline: 'none'
@@ -33,7 +33,11 @@ export default {
     const data = {
       staticClass: 'chip',
       style: style,
-      on: this.$listeners
+      on: Object.assign({}, { 
+        mouseenter: e => e.target.style.backgroundColor = 'rgba(75, 76, 71, .3)',
+        mouseleave: e => e.target.style.backgroundColor = 'rgba(75, 76, 71, .1)',
+        }, 
+      this.$listeners)
     }
     return h('span', data, [this.getContent(h)])
   }

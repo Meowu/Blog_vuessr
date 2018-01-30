@@ -7,6 +7,7 @@ import VNav from './Navbar'
 import VLoading from './Loading'
 import VFooter from './Footer'
 import VList from './List'
+import TagList from './TagList'
 export default {
   name: 'Hello',
   components: {
@@ -17,7 +18,8 @@ export default {
     VLoading,
     VFullnav,
     VFooter,
-    VList
+    VList,
+    TagList
   },
   data() {
     return {
@@ -65,6 +67,7 @@ export default {
     <v-card />
     <v-list :list="category" title='分类查看' />
     <v-loading @click="click" />
+    <tag-list :tags='category'  />
     <!-- <v-footer /> -->
   </div>
 </template>
