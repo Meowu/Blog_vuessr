@@ -32,6 +32,7 @@ export default {
           fontSize: '16px',
           textAlign: 'center',
           color: 'rgba(0,0,0,.65)'
+          // color: '#68cdce',
         },
         attrs: {
           href: '#'
@@ -63,7 +64,8 @@ export default {
       left: 0,
       width: '100%',
       zIndex: 99,
-      boxShadow: '0 0 3px 0 rgba(0,0,0,.3)',
+      // boxShadow: '0 0 3px 0 rgba(0,0,0,.3)',
+      boxShadow: '0 2px 4px 0 rgba(76,76,75,.1)'
     }
     const header = this.genHeader(h)
     return h('div', {

@@ -5,11 +5,12 @@ export default {
     const text = props.text || '加载更多'
     const style = {
       backgroundColor: 'rgba(0,0,0,.1)',
-      margin: '10px auto',
+      margin: '20px auto',
       height: '34px',
       lineHeight: '34px',
       textAlign: 'center',
-      letterSpacing: '.1em',
+      letterSpacing: '.2em',
+      color: 'rgba(35, 36, 31, .8)'
     }
     return h('div', {
       staticClass: 'load-more',

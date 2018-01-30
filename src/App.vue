@@ -1,12 +1,21 @@
 <script>
-  export default {
-    components: {
-    }
+import VFullnav from './components/NavbarFull'
+import VNav from './components/Navbar'
+import VFooter from './components/Footer'
+export default {
+  components: {
+    VFullnav,
+    VNav,
+    VFooter
   }
+}
 </script>
 <template>
   <div id='app'>
+    <v-fullnav />
+    <v-nav />
     <router-view></router-view>
+    <v-footer />
   </div>
 </template>
 <style lang="stylus">
@@ -38,7 +47,8 @@
     // background-color #fff
     font-size .24rem
     color #34495e
-    overflow-y scroll
+    // overflow-y scroll
+    overflow-y auto
 
   html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th,textarea, td {
     border: 0 none;
@@ -63,5 +73,21 @@
   a {
     text-decoration: none;
   }
-
+@media screen and (min-width: 1024px)
+  #hello 
+    width 960px
+    margin 100px auto 0 
+  .navbar
+    display none 
+    visibility hidden
+  .full-navbar
+    display block
+    width 960px
+    margin 0 auto
+@media screen and (max-width: 768px)
+  .full-navbar 
+    display none
+    visibility hidden
+  .navbar 
+    display block
 </style>

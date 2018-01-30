@@ -18,7 +18,7 @@ export default {
       return h('header', {
         staticClass: 'v-header',
         style: style
-      }, [h(Hamburger), Chip])
+      }, [h(Hamburger)])
     },
     genNav(h, items) {
       const children = items.map(item => h('a', {
@@ -58,6 +58,7 @@ export default {
       left: 0,
       width: '100%',
       maxWidth: '960px',
+      boxShadow: '0 2px 4px 0 rgba(76,76,75,.1)',
       zIndex: 99,
     }
     const header = this.genHeader(h)

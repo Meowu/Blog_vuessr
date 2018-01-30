@@ -5,6 +5,7 @@ import VHamburger from './Hamburger'
 import VFullnav from './NavbarFull.js'
 import VNav from './Navbar'
 import VLoading from './Loading'
+import VFooter from './Footer'
 export default {
   name: 'Hello',
   components: {
@@ -13,8 +14,29 @@ export default {
     VHamburger,
     VNav,
     VLoading,
-    VFullnav
+    VFullnav,
+    VFooter
   },
+  data() {
+    return {
+      show: null
+    }
+  },
+  mounted() {
+    this.show = document.documentElement
+  },
+  // computed: {
+  //   show() {
+  //     // width >= 1024 ? 'full' : 'small'
+  //     const width = document.documentElement.clientWidth || document.body.clientWidth
+  //     return width
+  //   }
+  // },
+  // watch: {
+  //   show() {
+  //     width >= 1024 ? 'full' : 'small'
+  //   }
+  // },
   methods: {
     click() {
       console.log('clicked.');
@@ -35,13 +57,14 @@ export default {
     <v-card />
     <v-card />
     <v-loading @click="click" />
+    <!-- <v-footer /> -->
   </div>
 </template>
 <style lang="stylus" scoped>
 #hello
   width 100%
   padding .333rem
-  margin-top 100px
+  margin-top 110px
 .nav-toggle
   padding 10px
   position relative
