@@ -1,4 +1,5 @@
 import './footer.css'
+import VIcon from './VIcon';
 export  default {
   name: "v-footer",
   functional: true,
@@ -10,15 +11,24 @@ export  default {
     const year = new Date().getFullYear()
     const copy = h('span', {
       style: {
-        marginRight: '5px'
+        marginBottom: '10px'
       }
-    }, `© ${year}`)
+    }, `©Copyright ${year}`)
     const author = h('a', {
       staticClass: 'footer__author',
       attrs: {
         href: href,
+      },
+      style: {
+        margin: '0 10px'
       }
     }, name)
+    const title = h('div', {
+      staticClass: 'footer_title',
+      style: {
+        margin: '10px auto'
+      }
+    }, ['Write with  ', h(VIcon, {style: {margin: '0 8px', color: 'rgb(222, 48, 48)'}}), 'By', author])
     const style = {
       textAlign: position,
       backgroundColor: backgroundColor
@@ -26,6 +36,6 @@ export  default {
     return h('footer', {
       staticClass: 'v-footer',
       style: style,
-    }, [copy, author])
+    }, [title, copy])
   }
 }
