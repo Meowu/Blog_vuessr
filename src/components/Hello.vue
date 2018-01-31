@@ -10,6 +10,7 @@ import VList from './List'
 import TagList from './TagList'
 import VAvatar from './Avatar'
 import VComment from './Comment'
+import VIcon from './VIcon'
 export default {
   name: 'Hello',
   components: {
@@ -23,7 +24,8 @@ export default {
     VList,
     TagList,
     VAvatar,
-    VComment
+    VComment,
+    VIcon
   },
   data() {
     return {
@@ -74,6 +76,7 @@ export default {
     <v-list :list="category" title='分类查看' />
     <v-loading @click="click" />
     <tag-list :tags='category'  />
+    <v-icon />
     <v-avatar :url='url' round="4%" />
     <!-- <v-footer /> -->
   </div>
