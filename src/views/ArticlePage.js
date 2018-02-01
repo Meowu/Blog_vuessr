@@ -11,7 +11,7 @@ export default {
     genHeader(h) {
       const title = h('h3', {staticClass: 'article-title'}, 'Vue 的实现原理和源码分析')
       const category = h('a', {staticClass: 'article-category', attrs: {href: '#'}}, '技术观察')
-      const time = h('span', {staticClass: 'article-category'}, [h(VIcon, {props: {icon: 'calender-alt'}})])
+      const time = h('span', {staticClass: 'article-category'}, [h(VIcon, {props: {icon: 'calendar'}, style: {color: 'rgba(0, 0, 0, .5)'}}), '2018-02-29'])
       return h('header', {staticClass: 'article-header'}, [title, h('div',{},[ category, time])])
     },
     genMain(h, content) {
