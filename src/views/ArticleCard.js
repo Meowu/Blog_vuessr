@@ -23,7 +23,7 @@ export default {
       return h('h3', {
         staticClass: 'card-title',
         style: style,
-        on: {
+        nativeOn: {   // 感知不到 click 事件。
           click: () => this.$router.push(`/articles/233`)
         }
       }, [h('span', title), h('span',{style:{fontSize: '12px', fontWeight: '200', color: 'rgba(0,0,0,.5)', marginRight: '10px'}}, '2018-02-30')])
@@ -67,6 +67,11 @@ export default {
         marginBottom: '16px',
         // border: '1px solid rgba(0,0,0,.3)',
         boxShadow: '0 1px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px 0 rgba(0,0,0,.12)'
+      },
+      on: {
+        click: () => {
+          console.log('click card.');
+        }
       }
     }, [title, text, tags])
   }
