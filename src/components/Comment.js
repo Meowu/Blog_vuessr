@@ -30,7 +30,7 @@ export default {
       }, '2018-02-30')
     },
     genMeta(h) {
-      const name = h('a', {staticClass: 'comment-name', attrs: {href: '#'}}, 'Meowu')
+      const name = h('a', {staticClass: 'comment-name', attrs: {href: '#'}}, '桀的理想国')
       return h('div', {
         staticClass: 'comment-meta',
       }, [name, this.genTime(h)])
