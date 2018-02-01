@@ -1,5 +1,7 @@
 import VComment from '../components/Comment'
 import VIcon from '../components/VIcon'
+import './article.css'
+import './github-markdown.css'
 export default {
   name: "v-article-page",
   data() {
@@ -11,12 +13,12 @@ export default {
     genHeader(h) {
       const title = h('h3', {staticClass: 'article-title'}, 'Vue 的实现原理和源码分析')
       const category = h('a', {staticClass: 'article-category', attrs: {href: '#'}}, '技术观察')
-      const time = h('span', {staticClass: 'article-category'}, [h(VIcon, {props: {icon: 'calendar'}, style: {color: 'rgba(0, 0, 0, .5)'}}), '2018-02-29'])
-      return h('header', {staticClass: 'article-header'}, [title, h('div',{},[ category, time])])
+      const time = h('span', {staticClass: 'article-category'}, [h(VIcon, {props: {icon: 'calendar'}}), '2018-02-29'])
+      return h('header', {staticClass: 'article-header'}, [title, h('div',{staticClass: 'article-meta'},[ category, time])])
     },
     genMain(h, content) {
       return h('article', {
-        staticClass: 'v-article github-markdown',
+        staticClass: 'v-article markdown-body',
         domProps: {
           innerHTML: content
         }
@@ -27,19 +29,18 @@ export default {
       // let 
     },
     genComments(h, comments) {
-      console.log(comments);
       const children = comments.map(cm => {
         const replies = cm.replies.map(reply => h(VComment, {props: {side: 'right'}}))
-        return h('article', {staticClass: 'comment-item'}, replies)
+        return h('article', {staticClass: 'article-comments'}, [h(VComment), h('div', {staticClass: 'comment-replies'}, replies)])
       })
       const content = h('div', {
         staticClass: 'comment'
       }, [h(VComment)])
-      return h('section', {staticClass: 'comment-list'}, [content, ...children])
+      return h('section', {staticClass: 'comment-list'}, children)
     }
   },
   render(h) {
     const cms = [{replies: [1, 2, 3]}, {replies: []}]
-    return h('main', {staticClass: 'article-main', style: {marginTop: '100px', fontSize: '14px'}}, [this.genHeader(h), this.genMain(h, '<em>Strong!Strong!</em>'), this.genComments(h, cms)])
+    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, '<em>Strong!Strong!</em>'), this.genComments(h, cms)])
   }
 }
