@@ -23,7 +23,7 @@ export default {
       return h('h3', {
         staticClass: 'card-title',
         style: style,
-        nativeOn: {   // 感知不到 click 事件。
+        on: { 
           click: () => this.$router.push(`/articles/233`)
         }
       }, [h('span', title), h('span',{style:{fontSize: '12px', fontWeight: '200', color: 'rgba(0,0,0,.5)', marginRight: '10px'}}, '2018-02-30')])
