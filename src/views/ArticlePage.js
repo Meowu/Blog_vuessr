@@ -1,0 +1,45 @@
+import VComment from '../components/Comment'
+import VIcon from '../components/VIcon'
+export default {
+  name: "v-article-page",
+  data() {
+    return {
+      // comments:
+    }
+  },
+  methods: {
+    genHeader(h) {
+      const title = h('h3', {staticClass: 'article-title'}, 'Vue 的实现原理和源码分析')
+      const category = h('a', {staticClass: 'article-category', attrs: {href: '#'}}, '技术观察')
+      const time = h('span', {staticClass: 'article-category'}, [h(VIcon, {props: {icon: 'calender-alt'}})])
+      return h('header', {staticClass: 'article-header'}, [title, h('div',{},[ category, time])])
+    },
+    genMain(h, content) {
+      return h('article', {
+        staticClass: 'v-article github-markdown',
+        domProps: {
+          innerHTML: content
+        }
+      })
+    },
+    genBar(h) {
+      let likes = 10
+      // let 
+    },
+    genComments(h, comments) {
+      console.log(comments);
+      const children = comments.map(cm => {
+        const replies = cm.replies.map(reply => h(VComment, {props: {side: 'right'}}))
+        return h('article', {staticClass: 'comment-item'}, replies)
+      })
+      const content = h('div', {
+        staticClass: 'comment'
+      }, [h(VComment)])
+      return h('section', {staticClass: 'comment-list'}, [content, ...children])
+    }
+  },
+  render(h) {
+    const cms = [{replies: [1, 2, 3]}, {replies: []}]
+    return h('main', {staticClass: 'article-main', style: {marginTop: '100px', fontSize: '14px'}}, [this.genHeader(h), this.genMain(h, '<em>Strong!Strong!</em>'), this.genComments(h, cms)])
+  }
+}

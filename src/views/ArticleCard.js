@@ -22,7 +22,10 @@ export default {
       }
       return h('h3', {
         staticClass: 'card-title',
-        style: style
+        style: style,
+        on: {
+          click: () => this.$router.push(`/articles/233`)
+        }
       }, [h('span', title), h('span',{style:{fontSize: '12px', fontWeight: '200', color: 'rgba(0,0,0,.5)', marginRight: '10px'}}, '2018-02-30')])
     },
     genText(h, text) {

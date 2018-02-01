@@ -13,13 +13,6 @@ export function createStore() {
         limit: '',
         page: ''
       },
-      lists: {
-        all: [],
-        ask: [],
-        good: [],
-        share: [],
-        job: []
-      }
     },
   });
 }
