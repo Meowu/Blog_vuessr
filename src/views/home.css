@@ -1,0 +1,64 @@
+.main {
+  width: 100%;
+  margin-top: 110px;
+  padding: .33333rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.nav-toggle {
+  padding: 10px;
+  position: relative;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+}
+.nav-toggle .icon-bar {
+    display: block;
+    background-color: #000000;
+    width: 20px;
+    height: 2px;
+
+  }
+.nav-toggle .icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+
+@media screen and (min-width: 1024px) {
+  .main {
+    width: 960px;
+    margin: 130px auto 0;
+  }
+
+  .navbar {
+    display: none;
+    visibility: hidden;
+  }
+
+  .full-navbar {
+    display: block;
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .full-navbar {
+    display: none;
+    visibility: hidden;
+  }
+
+  .navbar {
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+}

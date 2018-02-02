@@ -29,7 +29,7 @@ export default {
           lineHeight: '45px',
           // flex: '1 1 auto',
           marginRight: '40px',
-          fontSize: '16px',
+          fontSize: '18px',
           textAlign: 'center',
           color: 'rgba(0,0,0,.65)'
           // color: '#68cdce',
