@@ -31,7 +31,7 @@ export default {
     genComments(h, comments) {
       const children = comments.map(cm => {
         const replies = cm.replies.map(reply => h(VComment, {props: {side: 'right'}}))
-        return h('article', {staticClass: 'article-comments'}, [h(VComment), h('div', {staticClass: 'comment-replies'}, replies)])
+        return h('article', {staticClass: 'article-comments'}, [h(VComment, {props: {reply: true}}), h('div', {staticClass: 'comment-replies'}, replies)])
       })
       const content = h('div', {
         staticClass: 'comment'

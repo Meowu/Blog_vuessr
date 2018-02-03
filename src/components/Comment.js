@@ -1,4 +1,6 @@
 import VAvatar from './Avatar'
+import VIcon from './VIcon'
+import VReaction from './UserReaction'
 import './comment.css'
 export default {
   name: 'v-comment',
@@ -7,7 +9,7 @@ export default {
       type: String,
       default: 'left',
       validator: v => v === 'left' || v === 'right'
-    }
+    },
   },
   data() {
     return {
@@ -15,18 +17,28 @@ export default {
     }
   },
   methods: {
-    genReplyBtn(h, text='回复') {
-      return h('button', {
+    genReactions(h, text='回复') {
+      // const h
+      const likes = h('button', {staticClass: 'comment-likes'}, [h(VIcon, {props: {icon: 'thumbs-up'}}), 12])
+      // const reply = h('button', {st})
+      const replyBtn = h('button', {
         staticClass: 'comment-reply',
         on: {
           click: () => {}
         }
-      }, text)
+      }, '回复')
+      const children = [likes]
+      this.reply && children.push(replyBtn)
+      console.log(children);
+      return h('div', {
+        staticClass: 'comment-reaction'
+      }, children)
     },
     genTime(h, time) {
       time = new Date()
       return h('time', {
-        staticClass: 'comment-time'
+        staticClass: 'comment-time',
+        attrs: {datetime: time}
       }, '2018-02-30')
     },
     genMeta(h) {
@@ -38,7 +50,7 @@ export default {
     genMain(h) {
       return h('div', {
         staticClass: 'comment-main'
-      }, [h('div', {staticClass: 'comment-header'}, [this.genMeta(h), this.genReplyBtn(h)]), h('div', {staticClass: 'comment-content', domProps: {innerHTML: '<p>Hello, <strong>Vue.</strong></p>'}})])
+      }, [h('div', {staticClass: 'comment-header'}, [this.genMeta(h)]), h('div', {staticClass: 'comment-content', domProps: {innerHTML: '<p>Hello, <strong>Vue.</strong></p>'}}), h(VReaction, {props: {reply: true}, style: {marginTop: '20px', color: 'red'}})])
     }
   },
   render(h) {
