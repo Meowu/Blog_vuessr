@@ -28,7 +28,7 @@ export  default {
       style: {
         margin: '10px auto'
       }
-    }, ['Write with  ', h(VIcon, {style: {margin: '0 8px', color: 'rgb(222, 48, 48)'}}), 'By', author])
+    }, ['Written with  ', h(VIcon, {style: {margin: '0 8px', color: 'rgb(222, 48, 48)'}}), 'By', author])
     const style = {
       textAlign: position,
       backgroundColor: backgroundColor

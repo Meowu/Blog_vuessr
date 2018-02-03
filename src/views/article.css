@@ -10,9 +10,10 @@
 }
 .article-header {
   width: 100%;
+  /* color: #ccc; */
 }
 .article-main .article-title {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   height: 1rem;
   line-height: 1rem;
@@ -64,6 +65,7 @@
 .article-main .comment-replies .comment-item {
   background-color: #F2F3F5;
   margin-bottom: 20px;
+  border-radius: 3px;
 }
 
 

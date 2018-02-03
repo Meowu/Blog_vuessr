@@ -18,6 +18,7 @@ export default {
         padding: '.2em .8em',
         display: 'flex',
         alignItems: 'center',
+        cursor: 'pointer',
         justifyContent: 'space-between',
       }
       return h('h3', {

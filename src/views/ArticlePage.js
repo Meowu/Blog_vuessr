@@ -12,7 +12,7 @@ export default {
   methods: {
     genHeader(h) {
       const title = h('h3', {staticClass: 'article-title'}, 'Vue 的实现原理和源码分析')
-      const category = h('a', {staticClass: 'article-category', attrs: {href: '#'}}, '技术观察')
+      const category = h('a', {staticClass: 'article-category', attrs: {href: '#'}}, [h(VIcon, {props: {icon: 'bookmark'}}), '技术观察'])
       const time = h('span', {staticClass: 'article-category'}, [h(VIcon, {props: {icon: 'calendar'}}), '2018-02-29'])
       return h('header', {staticClass: 'article-header'}, [title, h('div',{staticClass: 'article-meta'},[ category, time])])
     },
