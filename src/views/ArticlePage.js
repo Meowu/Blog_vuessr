@@ -1,5 +1,6 @@
 import VComment from '../components/Comment'
 import VIcon from '../components/VIcon'
+import VReaction from '../components/UserReaction'
 import './article.css'
 import './github-markdown.css'
 export default {
@@ -41,6 +42,6 @@ export default {
   },
   render(h) {
     const cms = [{replies: [1, 2, 3]}, {replies: []}]
-    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, '<em>Strong!Strong!</em>'), this.genComments(h, cms)])
+    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, '<em>Strong!Strong!</em>'), h(VReaction, {props: {reply: true}, style: {marginTop: '20px'}}), this.genComments(h, cms)])
   }
 }

@@ -1,6 +1,6 @@
 .main {
   width: 100%;
-  margin-top: 110px;
+  /* margin-top: 110px; */
   padding: .33333rem;
   display: flex;
   flex-flow: row nowrap;
@@ -29,14 +29,14 @@
 @media screen and (min-width: 1024px) {
   .main {
     width: 960px;
-    margin: 130px auto 0;
+    margin: 90px auto 0;
   }
-
+  
   .navbar {
     display: none;
-    visibility: hidden;
+    visibility: hidden
   }
-
+  
   .full-navbar {
     display: block;
     width: 960px;
@@ -49,16 +49,18 @@
     display: none;
     visibility: hidden;
   }
-
+  
   .navbar {
     display: block;
   }
-
+  
   .sidebar {
     display: none;
   }
 }
 
 @media screen and (max-width: 1024px) {
-
+  .main {
+    margin: 110px auto 0;
+  }
 }

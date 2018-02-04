@@ -8,7 +8,7 @@ export default {
       const navs = this.genNav(h, ['首页', '归档', '关于'])
       const Chip = h(VChip, {}, 'Python')
       const style = {
-        height: '80px',
+        height: '70px',
         display: 'flex',
         alignItems: 'center',
         maxWidth: '960px',

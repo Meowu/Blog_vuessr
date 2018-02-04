@@ -1,13 +1,21 @@
 .article-main {
   width: 100%;
-  margin: 100px auto 10px;
+  margin: 110px auto 10px;
   font-size: 14px;
+  /* padding: .4rem; */
 }
 @media screen and (min-width: 1024px) {
   .article-main {
     width: 680px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .article-main {
+    padding: 0 20px;
+  }
+}
+
 .article-header {
   width: 100%;
   /* color: #ccc; */
@@ -17,21 +25,25 @@
   font-weight: 600;
   height: 1rem;
   line-height: 1rem;
-  margin-bottom: 10px
 }
 
 .article-meta {
-  font-size: 13px;
+  font-size: 14px;
   /* width: 100%; */
-  color: rgba(0,0,0,.5);
-  margin: 10px 0;
-  padding: 0 20px;
+  margin-bottom: 20px;
+  color: rgba(0,0,0,.65);
 }
 
-/* .article-meta {} */
+.article-meta i {
+  margin-right: 5px;
+
+}
+.article-meta .article-category {
+  margin-right: 20px;
+}
 
 .article-main .comment-list {
-  margin: 30px auto;
+  margin: 20px auto 30px;
   padding: 20px 30px 20px 15px;
   background-color: #fff;
 }

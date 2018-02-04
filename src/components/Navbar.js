@@ -7,7 +7,7 @@ export default {
     genHeader(h, blocks) {
       const Chip = h(VChip, {}, 'Python')
       const style = {
-        height: '55px',
+        height: '50px',
         display: 'flex',
         alignItems: 'center',
         // padding: '',
