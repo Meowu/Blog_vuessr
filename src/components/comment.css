@@ -1,6 +1,8 @@
 .comment-item {
   width: 100%;
-  padding: 20px 20px 10px 20px;
+  padding: .3rem;
+  /* padding-top: 10px; */
+  /* background-color: #fff; */
   display: flex;
   align-items: flex-start;
 }
@@ -35,6 +37,6 @@
 }
 
 
-/* .comment-item .comment-main .comment-reaction button .comment-reply {
-
-} */
+.comment-item .comment-main .comment-content {
+  padding-left: 15px;
+}

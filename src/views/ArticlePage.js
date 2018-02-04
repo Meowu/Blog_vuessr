@@ -77,8 +77,11 @@ export default {
     },
     genComments(h, comments) {
       const children = comments.map(cm => {
-        const replies = cm.replies.map(reply => h(VComment, {props: {side: 'right'}}))
-        return h('article', {staticClass: 'article-comments'}, [h(VComment, {props: {reply: true}}), h('div', {staticClass: 'comment-replies'}, replies)])
+        let replies
+        if (cm.replies.length) {
+          replies = cm.replies.map(reply => h(VComment, {props: {side: 'right', content: reply}}))
+        }
+        return h('article', {staticClass: 'article-comments'}, [h(VComment, {props: {reply: true, content: cm}}), h('div', {staticClass: 'comment-replies'}, replies)])
       })
       const content = h('div', {
         staticClass: 'comment'
@@ -88,6 +91,6 @@ export default {
   },
   render(h) {
     const cms = this.article.comments
-    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, this.article.html_string), h(VReaction, {props: {reply: true}, style: {marginTop: '20px'}}), this.genComments(h, cms)])
+    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, this.article.html_string), h(VReaction, {props: {reply: true, likes: this.article.likes}, style: {marginTop: '20px'}}), this.genComments(h, cms)])
   }
 }

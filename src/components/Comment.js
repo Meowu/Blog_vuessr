@@ -10,6 +10,7 @@ export default {
       default: 'left',
       validator: v => v === 'left' || v === 'right'
     },
+    reply: Boolean,
     content: {
       type: Object,
       required: true
@@ -21,9 +22,44 @@ export default {
     }
   },
   methods: {
+    // formatDate(timestamp, format='yyyy-MM-dd HH:mm') {
+    //   if (!Number(timestamp)) {
+    //     throw new Error("parameter must be a Number.")
+    //   }
+    //   const len = timestamp.toString().length
+    //   if (len !== 10 && len !== 13) { // 这里必须是 && 并集。
+    //     throw new Error('Number expected to be 10 or 13 at length.')
+    //   }
+    //   const time = Number(timestamp).toString().length === 10 ? timestamp*1000 : timestamp
+      
+    //   const padZero = number => number.toString().replace(/^(\d)$/, "0$1") // 补0
+    //   const newDate = new Date(Number(time))
+    //   const year = newDate.getFullYear()
+    //   const month = newDate.getMonth() + 1
+    //   const date = newDate.getDate()
+    //   const hours = newDate.getHours()
+    //   const minutes = newDate.getMinutes()
+      
+    //   switch (format) {
+    //     case 'yyyy-MM-dd':
+    //       return `${padZero(year)}-${padZero(month)}-${padZero(date)}`
+    //       break;
+    //     case 'MM-dd':
+    //       return `${padZero(month)}-${padZero(date)}`
+    //       break;
+    //     case 'HH:mm':
+    //       return `${padZero(hours)}:${padZero(minutes)}`
+    //       break
+    //     default:
+    //       return `${padZero(year)}-${padZero(month)}-${padZero(date)} ${padZero(hours)}:${padZero(minutes)}`
+    //   }
+    // },
     genReactions(h, text='回复') {
-      // const h
-      const likes = h('button', {staticClass: 'comment-likes'}, [h(VIcon, {props: {icon: 'thumbs-up'}}), 12])
+      const children = []
+      if (this.content.ups) {
+        const likes = h('button', {staticClass: 'comment-likes'}, [h(VIcon, {props: {icon: 'thumbs-up'}}), ])
+        children.push(likes)
+      }
       // const reply = h('button', {st})
       const replyBtn = h('button', {
         staticClass: 'comment-reply',
@@ -31,22 +67,22 @@ export default {
           click: () => {}
         }
       }, '回复')
-      const children = [likes]
       this.reply && children.push(replyBtn)
-      console.log(children);
       return h('div', {
         staticClass: 'comment-reaction'
       }, children)
     },
     genTime(h, time) {
-      time = new Date()
+      let timestamp = new Date(this.content.createdAt).toString()
+      timestamp = +new Date(timestamp)
+      // time = new Date()
       return h('time', {
         staticClass: 'comment-time',
         attrs: {datetime: time}
-      }, '2018-02-30')
+      }, this.formatDate(timestamp))
     },
     genMeta(h) {
-      const name = h('a', {staticClass: 'comment-name', attrs: {href: '#'}}, '桀的理想国')
+      const name = h('a', {staticClass: 'comment-name', attrs: {href: '#'}}, this.content.name)
       return h('div', {
         staticClass: 'comment-meta',
       }, [name, this.genTime(h)])
@@ -54,15 +90,16 @@ export default {
     genMain(h) {
       return h('div', {
         staticClass: 'comment-main'
-      }, [h('div', {staticClass: 'comment-header'}, [this.genMeta(h)]), h('div', {staticClass: 'comment-content', domProps: {innerHTML: '<p>Hello, <strong>Vue.</strong></p>'}}), h(VReaction, {props: {reply: true}, style: {marginTop: '20px', color: 'red'}})])
+      }, [h('div', {staticClass: 'comment-header'}, [this.genMeta(h)]), h('div', {staticClass: 'comment-content', domProps: {innerHTML: this.content.content}}), h(VReaction, {props: {reply: this.reply, likes: this.content.ups}, style: {marginTop: '20px'}})])
     }
   },
   render(h) {
     let children
+    const avatar = this.content.avatar || this.url
     if (this.side === 'left') {
-      children = [h(VAvatar, {props: {url: this.url, round: '4px'}}), this.genMain(h)]
+      children = [h(VAvatar, {props: {url: avatar, round: '4px'}}), this.genMain(h)]
     } else {
-      children = [this.genMain(h), h(VAvatar, {props: {url: this.url, round: '4px'}})]
+      children = [this.genMain(h), h(VAvatar, {props: {url: avatar, round: '4px'}})]
     }
     return h('div', {
       staticClass: 'comment-item'
