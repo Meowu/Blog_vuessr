@@ -9,7 +9,7 @@ export default {
    * @param {String} tag 
    * @param {String} category 
    */
-  getArticles(page=1, page_size=10, tag, category) {
+  getArticles({page=1, page_size=10, tag, category}) {
     const data = {
       url: '/articles',
       params: {
@@ -77,5 +77,12 @@ export default {
     return Api.post(data)
   },
 
+  getCategories() {
+    const data = {
+      url: '/categories',
+      params: {}
+    }
+    return Api.get(data)
+  }
   // replyComments(body) 
 }

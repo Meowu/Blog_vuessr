@@ -14,7 +14,7 @@ export function createRouter() {
     mode: 'history',
     routes: [
       {
-        path: '/all',
+        path: '/',
         component: Home
       },
       {
@@ -37,10 +37,10 @@ export function createRouter() {
         path: '/articles/:id',
         component: ArticlePage
       },
-      {
-        path: '/',
-        redirect: '/all'
-      },
+      // {
+      //   path: '*',
+      //   redirect: '/all'
+      // },
     ]
   })
 }
