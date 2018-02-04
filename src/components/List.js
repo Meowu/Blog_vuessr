@@ -30,7 +30,7 @@ export default {
       }, item.name)
       const span = h('span', {
         staticClass: 'list-item_count'
-      }, `(${item.number})`)
+      }, `(${item.counts})`)
       return h('li', {
         staticClass: 'list-item',
       }, [anchor, span])

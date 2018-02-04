@@ -10,6 +10,10 @@ export default {
       default: 'left',
       validator: v => v === 'left' || v === 'right'
     },
+    content: {
+      type: Object,
+      required: true
+    }
   },
   data() {
     return {

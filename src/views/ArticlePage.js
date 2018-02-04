@@ -3,6 +3,7 @@ import VIcon from '../components/VIcon'
 import VReaction from '../components/UserReaction'
 import './article.css'
 import './github-markdown.css'
+import './hljs.css'
 export default {
   name: "v-article-page",
   asyncData({store, route: {params: {id}}}) {
