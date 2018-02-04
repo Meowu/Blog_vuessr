@@ -28,16 +28,14 @@ export function createStore() {
     },
     mutations: {
       [ARTICLE_LIST](state, data) {
-        console.log('set article muta');
-        console.log(data);
         state.articles = data
       },
       [ARTICLE_ITEM](state, data) {
+        console.log(data);
         state.content = data
       },
       [SET_CATEGORIES](state, data) {
         // Vue.set(state, 'categories', data)
-        console.log('cates: ', data);
         state.categories = data
       }
     },
@@ -56,7 +54,8 @@ export function createStore() {
         return Api
           .getOneArticle(id)
           .then(res => {
-            commit('ARTICLE_ITEM', res.data)
+            console.log(res);
+            commit('ARTICLE_ITEM', res.data.data)
           })
           .catch(e => {})
       },

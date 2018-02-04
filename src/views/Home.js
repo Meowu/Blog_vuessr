@@ -5,8 +5,8 @@ import './home.css'
 export default {
   name: 'v-home',
   asyncData({store}) {
-    // return Promise.all([store.dispatch('getArticles'), store.dispatch('getCategories')])
-    return store.dispatch('getArticles')
+    return Promise.all([store.dispatch('getArticles'), store.dispatch('getCategories')])
+    // return store.dispatch('getArticles')
   },
   data() {
     return {
@@ -34,7 +34,7 @@ export default {
     },
     genArticles(h, articles) {
       // const articles = [1, 2]
-      const children = articles.map(article => h(VArticle))
+      const children = articles.map(article => h(VArticle, {props: {meta: article}}))
       return h('section', {staticClass: 'articles'}, children)
     }
   },

@@ -6,7 +6,7 @@ export default {
   methods: {
     genHeader(h, blocks) {
       const navs = this.genNav(h, ['首页', '归档', '关于'])
-      const Chip = h(VChip, {}, 'Python')
+      // const Chip = h(VChip, {}, 'Python')
       const style = {
         height: '70px',
         display: 'flex',
@@ -20,7 +20,7 @@ export default {
       return h('header', {
         staticClass: 'v-header',
         style: style
-      }, [h(Hamburger),navs, Chip])
+      }, [h(Hamburger),navs])
     },
     genNav(h, items) {
       const children = items.map(item => h('a', {

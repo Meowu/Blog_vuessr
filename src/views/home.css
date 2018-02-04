@@ -8,6 +8,15 @@
   align-items: flex-start;
 }
 
+.main > .articles {
+  flex: 1 1 75%;
+}
+
+.main > .sidebar {
+  flex: 1 1 25%;
+  padding-left: 40px;
+}
+
 .nav-toggle {
   padding: 10px;
   position: relative;

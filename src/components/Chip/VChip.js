@@ -1,8 +1,14 @@
 export default {
   name: 'v-chip',
+  props: {
+    tag: {
+      type: Object,
+      required: true
+    }
+  },
   methods: {
     getContent(h) {
-      const children = [this.$slots.default]
+      // const children = [this.$slots.default]
       const style = {
         height: '28px',
         zIndex: 1,
@@ -16,7 +22,7 @@ export default {
       return h('span', {
         'class': 'chip__content',
         style: style,
-      }, children)
+      }, this.tag.name)
     },
   },
   render(h) {

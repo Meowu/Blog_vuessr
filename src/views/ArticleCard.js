@@ -1,6 +1,12 @@
 import VChip from '../components/Chip/VChip'
 export default {
   name: "v-article-card",
+  props: {
+    meta: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
       text: 'include 和 exclude 属性允许组件有条件地缓存。二者都可以用逗号分隔字符串、正则表达式或一个数组来表示。',
@@ -9,7 +15,41 @@ export default {
     }
   },
   methods: {
+    formatDate(timestamp, format='yyyy-MM-dd HH:mm') {
+      if (!Number(timestamp)) {
+        throw new Error("parameter must be a Number.")
+      }
+      const len = timestamp.toString().length
+      if (len !== 10 && len !== 13) { // 这里必须是 && 并集。
+        throw new Error('Number expected to be 10 or 13 at length.')
+      }
+      const time = Number(timestamp).toString().length === 10 ? timestamp*1000 : timestamp
+      
+      const padZero = number => number.toString().replace(/^(\d)$/, "0$1") // 补0
+      const newDate = new Date(Number(time))
+      const year = newDate.getFullYear()
+      const month = newDate.getMonth() + 1
+      const date = newDate.getDate()
+      const hours = newDate.getHours()
+      const minutes = newDate.getMinutes()
+      
+      switch (format) {
+        case 'yyyy-MM-dd':
+          return `${padZero(year)}-${padZero(month)}-${padZero(date)}`
+          break;
+        case 'MM-dd':
+          return `${padZero(month)}-${padZero(date)}`
+          break;
+        case 'HH:mm':
+          return `${padZero(hours)}:${padZero(minutes)}`
+          break
+        default:
+          return `${padZero(year)}-${padZero(month)}-${padZero(date)} ${padZero(hours)}:${padZero(minutes)}`
+      }
+    },
     genTitle(h, title) {
+      let time = new Date(this.meta.post_date).toString()
+      time = +new Date(time)
       const style = {
         fontSize: '15px',
         fontWeight: 600,
@@ -25,11 +65,11 @@ export default {
         staticClass: 'card-title',
         style: style,
         on: { 
-          click: () => this.$router.push(`/articles/233`)
+          click: () => this.$router.push(`/articles/${this.meta.id}`)
         }
-      }, [h('span', title), h('span',{style:{fontSize: '12px', fontWeight: '200', color: 'rgba(0,0,0,.5)', marginRight: '10px'}}, '2018-02-30')])
+      }, [h('span', this.meta.title), h('span',{style:{fontSize: '12px', fontWeight: '200', color: 'rgba(0,0,0,.5)', marginRight: '10px'}}, `${this.formatDate(time, 'yyyy-MM-dd')}`)])
     },
-    genText(h, text) {
+    genText(h) {
       const style = {
         fontSzie: '14px',
         padding: '0 12px',
@@ -39,14 +79,14 @@ export default {
       return h('p', {
         staticClass: 'card-text',
         style: style,
-      }, text)
+      }, this.meta.summary)
     },
-    genTags(h, tags) {
+    genTags(h) {
       const style = {
         padding: '5px 12px',
         marginBottom: '10px'
       }
-      const children = tags.map(tag => h(VChip, null, tag))
+      const children = this.meta.tags.map(tag => h(VChip, {props: {tag: tag}}))
       return h('div', {
         style: style,
         staticClass: 'card-tags'
@@ -54,9 +94,9 @@ export default {
     }
   },
   render(h) {
-    const tags = this.genTags(h, this.tags)
-    const text = this.genText(h, this.text)
-    const title = this.genTitle(h, this.title)
+    const tags = this.genTags(h)
+    const text = this.genText(h)
+    const title = this.genTitle(h)
     // const meta = h('')
     return h('div', {
       staticClass: 'card',
