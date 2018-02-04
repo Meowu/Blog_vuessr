@@ -13,7 +13,10 @@ export default {
     const data = {
       url: '/articles',
       params: {
-        ...arguments
+        page,
+        page_size,
+        tag,
+        category
       }
     }
     return Api.get(data)
