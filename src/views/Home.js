@@ -1,5 +1,6 @@
 import VArticle from './ArticleCard'
 import VList from '../components/List'
+import VChip from '../components/Chip/VChip'
 import Api from '../api'
 import './home.css'
 export default {
@@ -33,12 +34,18 @@ export default {
   },
   methods: {
     genSidebar(h, cates) {
-      return h('sidebar', {staticClass: 'sidebar'}, [h(VList, {props: {list: cates, title: '分类查看'}})])
+      return h('sidebar', {staticClass: 'sidebar'}, [h(VList, {props: {list: cates, title: '分类查看'}}), this.genTags(h)])
     },
     genArticles(h, articles) {
       // const articles = [1, 2]
       const children = articles.map(article => h(VArticle, {props: {meta: article}}))
       return h('section', {staticClass: 'articles'}, children)
+    },
+    genTags(h) {
+      const children = this.tags.map(tag => h(VChip, {props: {tag: tag}}))
+      const title = h('h3', {staticClass: 'taglist-title'}, '标签列表')
+      const list = h('div', {staticClass: 'taglist-body'}, children)
+      return h('div', {staticClass: 'taglist'}, [title, list])
     }
   },
   render(h) {

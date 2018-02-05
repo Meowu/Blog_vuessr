@@ -17,6 +17,17 @@
   padding-left: 40px;
 }
 
+.main > .sidebar .taglist {
+  padding: 0 10px;
+  margin-top: 20px;
+}
+
+.main > .sidebar .taglist-title {
+  font-size: 18px;
+  padding: 8px 0;
+  font-weight: 400;
+  color: rgba(0, 0, 0, .8);
+}
 .nav-toggle {
   padding: 10px;
   position: relative;
