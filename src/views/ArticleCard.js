@@ -1,4 +1,6 @@
 import VChip from '../components/Chip/VChip'
+import VIcon from '../components/VIcon'
+import './card.css'
 export default {
   name: "v-article-card",
   props: {
@@ -91,29 +93,56 @@ export default {
         style: style,
         staticClass: 'card-tags'
       }, children)
+    },
+    genMeta(h) {
+      const likes = h('button', {
+        staticClass: 'user-likes'
+      }, [
+        h(VIcon, {
+          props: {
+            icon: 'heart'
+          }
+        }),
+        this.meta.likes
+      ])
+      const views = h('button', {
+        staticClass: 'user-views'
+      }, [
+        h(VIcon, {
+          props: {
+            icon: 'eye'
+          }
+        }),
+        this.meta.page_views
+      ])
+      const comments = h('button', {
+        staticClass: 'user-comments'
+      }, [
+        h(VIcon, {
+          props: {
+            icon: 'comments'
+          }
+        }),
+        this.meta.comments_count
+      ])
+      return h('div', {staticClass: 'card-meta'}, [views, likes, comments])
     }
   },
   render(h) {
-    const tags = this.genTags(h)
+    const meta = this.genMeta(h)
     const text = this.genText(h)
     const title = this.genTitle(h)
     // const meta = h('')
     return h('div', {
-      staticClass: 'card',
+      staticClass: 'article-card',
       style: {
-        width: '100%',
-        backgroundColor: '#FCFBFD',
-        borderRadius: '4px',
-        fontSize: '14px',
-        marginBottom: '16px',
-        // border: '1px solid rgba(0,0,0,.3)',
-        boxShadow: '0 1px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px 0 rgba(0,0,0,.12)'
+        
       },
       on: {
         click: () => {
           console.log('click card.');
         }
       }
-    }, [title, text, tags])
+    }, [title, text, meta])
   }
 }

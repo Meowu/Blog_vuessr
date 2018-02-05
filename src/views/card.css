@@ -1,0 +1,30 @@
+.article-card {
+  width: 100%;
+  background-color: #FCFBFD;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px 0 rgba(0,0,0,.12);
+}
+
+.article-card .card-meta {
+  padding: 10px;
+  text-align: right;
+}
+.article-card .card-meta button {
+  -webkit-appearance: none;
+  outline: none;
+  padding: 0;
+  text-align: left;
+  color: #666;
+  border: 1px solid transparent;
+  background: none;
+  font-size: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.article-card .card-meta button i {
+  margin-right: 6px;
+  /* color: rgba(0,0,0,.5); */
+}
