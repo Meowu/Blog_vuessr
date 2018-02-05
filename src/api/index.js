@@ -83,6 +83,14 @@ export default {
       params: {}
     }
     return Api.get(data)
+  },
+
+  getTags() {
+    const data = {
+      url: '/tags',
+      params: {}
+    }
+    return Api.get(data)
   }
   // replyComments(body) 
 }

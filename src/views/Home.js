@@ -5,7 +5,7 @@ import './home.css'
 export default {
   name: 'v-home',
   asyncData({store}) {
-    return Promise.all([store.dispatch('getArticles'), store.dispatch('getCategories')])
+    return Promise.all([store.dispatch('getArticles'), store.dispatch('getCategories'), store.dispatch('getTags')])
     // return store.dispatch('getArticles')
   },
   data() {
@@ -26,6 +26,9 @@ export default {
     },
     categories() {
       return this.$store.state.categories
+    },
+    tags() {
+      return this.$store.state.tags
     }
   },
   methods: {

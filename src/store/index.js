@@ -11,6 +11,7 @@ const UP_COMMENT = 'UP_COMMENT'
 const ADD_COMMENT = 'ADD_COMMENT'
 const REPLY_COMMENT = 'REPLY_COMMENT'
 const SET_CATEGORIES = 'SET_CATEGORIES'
+const SET_TAGS = 'SET_TAGS'
 
 export function createStore() {
   return new Vuex.Store({
@@ -24,6 +25,7 @@ export function createStore() {
       },
       categories: [],
       articles: [],
+      tags: [],
       content: null
     },
     mutations: {
@@ -37,6 +39,9 @@ export function createStore() {
       [SET_CATEGORIES](state, data) {
         // Vue.set(state, 'categories', data)
         state.categories = data
+      },
+      [SET_TAGS](state, data) {
+        state.tags = data
       }
     },
     actions: {
@@ -84,11 +89,13 @@ export function createStore() {
           .catch(e => {})
       },
       getCategories({commit}) {
-        console.log('getCate');
         return Api   
           .getCategories()
           .then(res => commit('SET_CATEGORIES', res.data.data))
           .catch(e => {})
+      },
+      getTags({commit}) {
+        return Api.getTags().then(res => commit('SET_TAGS', res.data.data)).catch(e => {})
       }
     }
   })
