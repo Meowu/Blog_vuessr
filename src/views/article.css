@@ -16,10 +16,26 @@
   }
 }
 
-.article-main .user-reaction {
+.article-main > .user-reaction {
   text-align: right;
 }
 
+.article-main > .user-reaction button {
+  -webkit-appearance: none;
+  outline: none;
+  padding: 0;
+  text-align: left;
+  color: steelblue;
+  border: 1px solid transparent;
+  background: none;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.article-main > .user-reaction button i {
+  margin-right: 6px;
+}
 .article-header {
   width: 100%;
   /* color:  */
@@ -50,7 +66,7 @@
   margin: 20px 10px 30px 10px;
   /* padding: 20px 30px 20px 15px; */
   /* padding: 0 20px; */
-  background-color: #f2f3f5;
+  background-color: rgba(240, 240, 244, 0.5);
   /* border-top: 1px solid rgba(0,0,0,.3); */
 }
 

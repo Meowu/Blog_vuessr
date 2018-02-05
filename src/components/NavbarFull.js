@@ -34,6 +34,9 @@ export default {
           color: 'rgba(0,0,0,.65)'
           // color: '#68cdce',
         },
+        on: {
+          click: () => this.$router.push('/')
+        },
         attrs: {
           href: '#'
         }

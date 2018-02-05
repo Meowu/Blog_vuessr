@@ -7,6 +7,12 @@
   box-shadow: 0 1px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px 0 rgba(0,0,0,.12);
 }
 
+.article-card .card-text {
+  font-size: 14px;
+  padding: 0 12px;
+  width: 100%;
+  margin-bottom: 10px;
+}
 .article-card .card-meta {
   padding: 10px;
   text-align: right;
@@ -19,7 +25,7 @@
   color: #666;
   border: 1px solid transparent;
   background: none;
-  font-size: 18px;
+  font-size: 14px;
   margin-right: 10px;
   cursor: pointer;
   user-select: none;

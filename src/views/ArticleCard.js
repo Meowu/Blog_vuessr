@@ -72,15 +72,8 @@ export default {
       }, [h('span', this.meta.title), h('span',{style:{fontSize: '12px', fontWeight: '200', color: 'rgba(0,0,0,.5)', marginRight: '10px'}}, `${this.formatDate(time, 'yyyy-MM-dd')}`)])
     },
     genText(h) {
-      const style = {
-        fontSzie: '14px',
-        padding: '0 12px',
-        width: '100%',
-        marginBottom: '10px'
-      }
       return h('p', {
         staticClass: 'card-text',
-        style: style,
       }, this.meta.summary)
     },
     genTags(h) {
@@ -135,9 +128,6 @@ export default {
     // const meta = h('')
     return h('div', {
       staticClass: 'article-card',
-      style: {
-        
-      },
       on: {
         click: () => {
           console.log('click card.');

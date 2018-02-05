@@ -1,12 +1,14 @@
 import VComment from '../components/Comment'
 import VIcon from '../components/VIcon'
 import VReaction from '../components/UserReaction'
+import VChip from '../components/Chip/VChip'
 import './article.css'
 import './github-markdown.css'
 import './hljs.css'
 export default {
   name: "v-article-page",
   asyncData({store, route: {params: {id}}}) {
+    console.log(id);
     return store.dispatch('getArticleItem', id)
   },
   data() {
@@ -76,6 +78,7 @@ export default {
       // let 
     },
     genComments(h, comments) {
+      comments = comments || []
       const children = comments.map(cm => {
         let replies
         if (cm.replies.length) {
@@ -87,10 +90,45 @@ export default {
         staticClass: 'comment'
       }, [h(VComment)])
       return h('section', {staticClass: 'comment-list'}, children)
+    },
+    genTags(h) {
+      const style = {
+        padding: '15px 0'
+        // marginBottom: '10px'
+      }
+      const children = this.article.tags.map(tag => h(VChip, {props: {tag: tag}}))
+      return h('div', {
+        style: style,
+        staticClass: 'card-tags'
+      }, children)
+    },
+    genReaction(h) {
+      let children = []
+      const likes = h('button', {
+        staticClass: 'user-likes'
+      }, [
+        h(VIcon, {
+        }),
+        this.article.likes
+      ])
+      children.push(likes)
+      const replyBtn = h('button', {
+        staticClass: 'user-reply',
+        on: {
+          click: () => {}
+        }
+      }, '回复')
+      children.push(replyBtn)
+      return h('div', {
+        staticClass: 'user-reaction',
+        on: {
+          click: () => this.$store.dispatch('upArticle', this.article._id).then(() => console.log("up.")).catch(e => {})
+        }
+  }, children)
     }
   },
   render(h) {
     const cms = this.article.comments
-    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, this.article.html_string), h(VReaction, {props: {reply: true, likes: this.article.likes}, style: {marginTop: '20px'}}), this.genComments(h, cms)])
+    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, this.article.html_string), this.genTags(h), this.genReaction(h), this.genComments(h, cms)])
   }
 }

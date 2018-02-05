@@ -69,8 +69,6 @@ export function createStore() {
       }, id) {
         return Api
           .upArticles(id)
-          .then(res => commit('UP_ARTICLE'))
-          .catch(e => {})
       },
       addComments({
         commit
