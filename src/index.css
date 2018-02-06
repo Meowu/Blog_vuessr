@@ -56,6 +56,13 @@ a {
   text-decoration: none;
 }
 
+.full-navbar .v-header .nav-item.is-active {
+  color: steelblue;
+}
+
+.full-navbar .v-header .nav-item:hover {
+  background-color: aliceblue;
+}
 @media screen and (min-width: 1024px) {
   #hello {
     width: 960px;
@@ -64,7 +71,6 @@ a {
 
   .navbar {
     display: none;
-    visibility: hidden;
   }
 
   .full-navbar {

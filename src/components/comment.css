@@ -12,6 +12,9 @@
   flex: 1 1 auto;
 }
 
+.comment-item .comment-main .user-reaction {
+  text-align: right;  
+}
 .comment-item .comment-main .comment-header {
   display: flex;
   justify-content: space-between;
@@ -38,5 +41,5 @@
 
 
 .comment-item .comment-main .comment-content {
-  padding-left: 15px;
+  padding-left: 10px;
 }

@@ -25,7 +25,7 @@
   outline: none;
   padding: 0;
   text-align: left;
-  color: steelblue;
+  color: rgb(81, 104, 122);
   border: 1px solid transparent;
   background: none;
   font-size: 16px;
@@ -80,9 +80,6 @@
   border-bottom: 0;
 }
 
-.article-main .comment-list > .article-comments > .comment-item {
-  /* margin-bottom: 10px; */
-}
 
 .article-main .comment-replies .comment-item:last-of-type {
   margin-bottom: 0;

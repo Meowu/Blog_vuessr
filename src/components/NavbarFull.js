@@ -3,9 +3,14 @@ import VChip from './Chip/VChip'
 export default {
   name: "v-fullnav",
   // functional: true,
+  computed: {
+    route() {
+      return this.$route.path
+    }
+  },
   methods: {
     genHeader(h, blocks) {
-      const navs = this.genNav(h, ['首页', '归档', '关于'])
+      const navs = this.genNav(h, [{name: '首页', path: '/'}, {name: '归档', path: '/archives'}, {name: '关于', path: '/about'}])
       // const Chip = h(VChip, {}, 'Python')
       const style = {
         height: '70px',
@@ -24,26 +29,26 @@ export default {
     },
     genNav(h, items) {
       const children = items.map(item => h('a', {
+        staticClass: 'nav-item',
         style: {
-          height: '45px',
-          lineHeight: '45px',
-          // flex: '1 1 auto',
-          marginRight: '40px',
+          height: '100%',
+          padding: '20px 0',
+          width: '1.5rem',
           fontSize: '18px',
           textAlign: 'center',
-          color: 'rgba(0,0,0,.65)'
-          // color: '#68cdce',
+          cursor: 'pointer',
+          // color: 'rgba(0,0,0,.65)'  这里设置 字体会优先级最高，影响全局定义的样式。
+        },
+        'class': {
+          'is-active': this.route === item.path
         },
         on: {
-          click: () => this.$router.push('/')
+          click: () => this.$router.push(item.path)
         },
-        attrs: {
-          href: '#'
-        }
-      }, item))
+      }, item.name))
       const style = {
         position: 'relative',
-        height: '45px',
+        height: '100%',
         display: 'flex',
         flex: '1 1 auto',
         alignItems: 'center',
