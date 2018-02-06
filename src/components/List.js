@@ -16,9 +16,6 @@ export default {
         staticClass: 'list-title'
       }, text)
     },
-    genIcon(h, text) {
-
-    }
   },
   render(h) {
     const data = {
@@ -26,10 +23,16 @@ export default {
     }
     const children = this.list.map(item => {
       const anchor = h('a', {
-        staticClass: 'list-item__name'
+        staticClass: 'list-item__name',
+        on: {
+          click: () => {
+            this.$store.commit('SET_PARAMS', {page: 1, page_size: 15, tag: '', category: item.id})
+            this.$store.dispatch('getArticles').then(() => this.$router.push(`/articles/categories/${item.name.toLowerCase()}`))
+          }
+        }
       }, item.name)
       const span = h('span', {
-        staticClass: 'list-item_count'
+        staticClass: 'list-item_count',
       }, `(${item.counts})`)
       return h('li', {
         staticClass: 'list-item',

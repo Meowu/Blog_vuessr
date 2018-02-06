@@ -6,6 +6,7 @@ import './home.css'
 export default {
   name: 'v-home',
   asyncData({store}) {
+    store.commit('SET_PARAMS', {page: 1, page_size: 10, tag: '', category: ''})
     return Promise.all([store.dispatch('getArticles'), store.dispatch('getCategories'), store.dispatch('getTags')])
     // return store.dispatch('getArticles')
   },
@@ -47,7 +48,7 @@ export default {
         on: {
           click: () => {
             this.$store.commit('SET_PARAMS', {page: 1, page_size: 15, tag: tag.id, category: ''})
-            this.$store.dispatch('getArticles')
+            this.$store.dispatch('getArticles').then(() => this.$router.push(`/articles/tags/${tag.name.toLowerCase()}`))
           }
         }
       }))

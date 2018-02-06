@@ -20,6 +20,14 @@ export function createRouter() {
         component: Home
       },
       {
+        path: '/articles/tags/:tag',
+        component: Home
+      },
+      {
+        path: '/articles/categories/:category',
+        component: Home
+      },
+      {
         path: '/archives',
         component: ArchivePage
       },
