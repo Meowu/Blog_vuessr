@@ -56,7 +56,7 @@ a {
   text-decoration: none;
 }
 
-.full-navbar .v-header .nav-item.is-active {
+.full-navbar .v-header .nav-item.is-active, .navbar .v-navbar .nav-item.is-active {
   color: steelblue;
 }
 
