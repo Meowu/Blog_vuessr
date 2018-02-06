@@ -12,11 +12,12 @@ const ADD_COMMENT = 'ADD_COMMENT'
 const REPLY_COMMENT = 'REPLY_COMMENT'
 const SET_CATEGORIES = 'SET_CATEGORIES'
 const SET_TAGS = 'SET_TAGS'
+const SET_PARAMS = 'SET_PARAMS'
 
 export function createStore() {
   return new Vuex.Store({
     state: {
-      showNavbar: true,
+      loadmore: false,
       params: {
         page: 1,
         page_size: 10,
@@ -30,7 +31,12 @@ export function createStore() {
     },
     mutations: {
       [ARTICLE_LIST](state, data) {
-        state.articles = data
+        if (state.loadmore) {
+          state.articles = state.articles.concat(data)
+          state.loadmore = false
+        } else {
+          state.articles = data
+        }
       },
       [ARTICLE_ITEM](state, data) {
         console.log(data);
@@ -42,6 +48,9 @@ export function createStore() {
       },
       [SET_TAGS](state, data) {
         state.tags = data
+      },
+      [SET_PARAMS](state, data) {
+        state.params = data
       }
     },
     actions: {

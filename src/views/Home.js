@@ -42,7 +42,15 @@ export default {
       return h('section', {staticClass: 'articles'}, children)
     },
     genTags(h) {
-      const children = this.tags.map(tag => h(VChip, {props: {tag: tag}}))
+      const children = this.tags.map(tag => h(VChip, {
+        props: {tag: tag},
+        on: {
+          click: () => {
+            this.$store.commit('SET_PARAMS', {page: 1, page_size: 15, tag: tag.id, category: ''})
+            this.$store.dispatch('getArticles')
+          }
+        }
+      }))
       const title = h('h3', {staticClass: 'taglist-title'}, '标签列表')
       const list = h('div', {staticClass: 'taglist-body'}, children)
       return h('div', {staticClass: 'taglist'}, [title, list])
