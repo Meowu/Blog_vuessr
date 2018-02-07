@@ -13,7 +13,7 @@ export  default {
       style: {
         marginBottom: '10px'
       }
-    }, `© copyright ${year}`)
+    }, `© Copyright ${year}`)
     const author = h('a', {
       staticClass: 'footer__author',
       attrs: {

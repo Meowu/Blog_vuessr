@@ -108,6 +108,10 @@ export default {
         staticClass: 'user-likes'
       }, [
         h(VIcon, {
+          on: {
+            click: () => this.$store.dispatch('upArticle', this.article._id).then(() => this.$refs.heart.style.color = 'rgb(222, 48, 48)').catch(e => {})
+          },
+          ref: 'heart',
         }),
         this.article.likes
       ])
@@ -121,9 +125,6 @@ export default {
       children.push(replyBtn)
       return h('div', {
         staticClass: 'user-reaction',
-        on: {
-          click: () => this.$store.dispatch('upArticle', this.article._id).then(() => console.log("up.")).catch(e => {})
-        }
   }, children)
     }
   },

@@ -1,0 +1,22 @@
+.v-btn {
+  align-items: center;
+  border-radius: 3px;
+  display: inline-flex;
+  height: 36px;
+  flex: 0 1 auto;
+  font-size: 14px;
+  font-weight: 500;
+  justify-content: center;
+  margin: 6px 8px;
+  min-width: 60px;
+  outline: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 1ms;
+  position: relative;
+  vertical-align: middle;
+  border: transparent;
+  user-select: none;
+  /* color: #fff; */
+  background-color: rgba(240, 245, 250);
+}
