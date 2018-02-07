@@ -7,6 +7,7 @@ export default {
   name: 'v-home',
   asyncData({store}) {
     store.commit('SET_PARAMS', {page: 1, page_size: 10, tag: '', category: ''})
+    console.log('asyncData');
     return Promise.all([store.dispatch('getArticles'), store.dispatch('getCategories'), store.dispatch('getTags')])
     // return store.dispatch('getArticles')
   },
@@ -19,9 +20,10 @@ export default {
       ],
     }
   },
-  // created() {
-  //   this.$store.dispatch('getArticles')
-  // },
+  created() {
+    // this.$store.dispatch('getArticles')
+    console.log('created');
+  },
   computed: {
     articles() {
       return this.$store.state.articles

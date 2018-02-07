@@ -64,10 +64,6 @@ a {
   background-color: aliceblue;
 }
 @media screen and (min-width: 1024px) {
-  #hello {
-    width: 960px;
-    margin: 100px auto 0;
-  }
 
   .navbar {
     display: none;
