@@ -1,6 +1,7 @@
 import Hamburger from './Hamburger'
 import VChip from './Chip/VChip'
 import VButton from './VButton'
+import VInput from './VInput'
 export default {
   name : "v-fullnav",
   // functional: true,
@@ -72,19 +73,21 @@ export default {
             click: () => console.log('clicked.')
           }
         }, 'success'),
-        h(VButton, {
-          props: {
-            disabled: true
-          },
-          on: {
-            click: () => console.log('clicked.')
-          }
-        }, '取消'),
-        h(VButton, {
-          on: {
-            click: () => console.log('clicked.')
-          }
-        }, '确定')
+        // h(VInput),
+        h(VInput, {props: {label: '邮箱'}, }),
+        // h(VButton, {
+        //   props: {
+        //     disabled: true
+        //   },
+        //   on: {
+        //     click: () => console.log('clicked.')
+        //   }
+        // }, '取消'),
+        // h(VButton, {
+        //   on: {
+        //     click: () => console.log('clicked.')
+        //   }
+        // }, '确定')
       ])
     },
     genNav(h, items) {
