@@ -16,6 +16,11 @@ export default {
       type: String,
       default: '请输入内容'
     },
+    rows: {
+      type: [String, Number],
+      default: 3,
+      validator: v => !!Number(v)
+    },
     type: {
       type: String,
       default: 'text'
@@ -56,6 +61,7 @@ export default {
           required: this.required,
           disabled: this.disabled,
         },
+        'class': {},
         on: {
           input(e) {
             const value = e.target.value
@@ -69,6 +75,7 @@ export default {
           placeholder: this.placeholder
         }
       }
+      tag === 'textarea' && (data.domProps.rows = this.rows) && (data.class['v-textarea'] = true)
       return h(tag, data)
     }
   },

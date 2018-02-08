@@ -76,8 +76,8 @@ export default {
       <v-fullnav />
 
     </div>
-    <v-input v-model="name" />
-    <v-input type='textarea' />
+    <v-input v-model="name" :autofocus='true' />
+    <v-input type='textarea' rows='6' />
     <v-comment />
     <v-card />
     <v-card />
