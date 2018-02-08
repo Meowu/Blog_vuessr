@@ -1,6 +1,7 @@
 import Hamburger from './Hamburger'
 import VChip from './Chip/VChip'
-import VButton from './VButton'
+// import VButton from './VButton'
+import VButton from './VButton/index'
 import VInput from './VInput'
 export default {
   name : "v-fullnav",
@@ -43,7 +44,7 @@ export default {
         navs,
         h(VButton, {
           props: {
-            type: 'primary'
+            type: 'info'
           },
           on: {
             click: () => console.log('clicked.')

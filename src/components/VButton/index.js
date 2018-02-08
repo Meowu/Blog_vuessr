@@ -14,9 +14,9 @@ export default {
     classes() {
       return {
         'v-btn--plain': this.type === 'plain',
-        'v-btn--danger': this.type === 'danger',
-        'v-btn--primary': this.type === 'primary',
+        'v-btn--success': this.type === 'success',
         'v-btn--error': this.type === 'error',
+        'v-btn--warning': this.type === 'warning',
         'v-btn--info': this.type === 'info',
         'v-btn--flat': this.flat,
         'v-btn--round': this.round,

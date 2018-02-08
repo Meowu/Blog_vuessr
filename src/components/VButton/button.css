@@ -33,7 +33,7 @@
   pointer-events: none;  /*禁止点击事件*/
   box-shadow: none;
 }
-.v-btn.v-btn--primary {
+.v-btn.v-btn--info {
   background-color: #2196f3;
   border-color: #2196f3;
   color: #fff;
@@ -42,5 +42,17 @@
 .v-btn.v-btn--error {
   background-color: #FF5252;
   border-color: #FF5252;
+  color: #fff;
+}
+
+.v-btn.v-btn--warning {
+  background-color: #FFC107;
+  border-color: #FFC107;
+  color: #fff;
+}
+
+.v-btn.v-btn--success {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
   color: #fff;
 }
