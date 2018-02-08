@@ -36,9 +36,13 @@ export function createRouter() {
         component: ArticlePage
       },
       {
-        path: '/aboutme',
-        component: AboutPage
+        path: '/about',
+        component: Hello
       },
+      // {
+      //   path: '/aboutme',
+      //   component: AboutPage
+      // },
       // {
       //   path: '*',
       //   redirect: '/all'
