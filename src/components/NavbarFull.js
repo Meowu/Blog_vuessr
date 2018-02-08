@@ -2,16 +2,27 @@ import Hamburger from './Hamburger'
 import VChip from './Chip/VChip'
 import VButton from './VButton'
 export default {
-  name: "v-fullnav",
+  name : "v-fullnav",
   // functional: true,
-  computed: {
+  computed : {
     route() {
       return this.$route.path
     }
   },
-  methods: {
+  methods : {
     genHeader(h, blocks) {
-      const navs = this.genNav(h, [{name: '首页', path: '/'}, {name: '归档', path: '/archives'}, {name: '关于', path: '/about'}])
+      const navs = this.genNav(h, [
+        {
+          name: '首页',
+          path: '/'
+        }, {
+          name: '归档',
+          path: '/archives'
+        }, {
+          name: '关于',
+          path: '/about'
+        }
+      ])
       // const Chip = h(VChip, {}, 'Python')
       const style = {
         height: '70px',
@@ -21,12 +32,60 @@ export default {
         margin: '0 auto',
         padding: '0 0.333rem',
         justifyContent: 'space-between',
-        borderBottom: '1px solid #eee',
+        borderBottom: '1px solid #eee'
       }
       return h('header', {
         staticClass: 'v-header',
         style: style
-      }, [h(Hamburger),navs, h(VButton, '确定')])
+      }, [
+        h(Hamburger),
+        navs,
+        h(VButton, {
+          props: {
+            type: 'primary'
+          },
+          on: {
+            click: () => console.log('clicked.')
+          }
+        }, 'primary'),
+        h(VButton, {
+          props: {
+            type: 'text'
+          },
+          on: {
+            click: () => console.log('clicked.')
+          }
+        }, 'Text'),
+        h(VButton, {
+          props: {
+            type: 'error'
+          },
+          on: {
+            click: () => console.log('clicked.')
+          }
+        }, '取消'),
+        h(VButton, {
+          props: {
+            type: 'success'
+          },
+          on: {
+            click: () => console.log('clicked.')
+          }
+        }, 'success'),
+        h(VButton, {
+          props: {
+            disabled: true
+          },
+          on: {
+            click: () => console.log('clicked.')
+          }
+        }, '取消'),
+        h(VButton, {
+          on: {
+            click: () => console.log('clicked.')
+          }
+        }, '确定')
+      ])
     },
     genNav(h, items) {
       const children = items.map(item => h('a', {
@@ -44,8 +103,10 @@ export default {
           'is-active': this.route === item.path
         },
         on: {
-          click: () => this.$router.push(item.path)
-        },
+          click: () => this
+            .$router
+            .push(item.path)
+        }
       }, item.name))
       const style = {
         position: 'relative',
@@ -55,8 +116,7 @@ export default {
         alignItems: 'center',
         flexFlow: 'row nowrap',
         fontSize: '18px',
-        // justifyContent: 'space-between',
-        // borderBottom: '1px solid #dcdcdc',
+        // justifyContent: 'space-between', borderBottom: '1px solid #dcdcdc',
         padding: '0 16px'
       }
       return h('nav', {
@@ -79,7 +139,7 @@ export default {
     const header = this.genHeader(h)
     return h('div', {
       staticClass: 'full-navbar',
-      style: style,
+      style: style
     }, [header])
   }
 }

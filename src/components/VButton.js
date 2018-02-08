@@ -1,29 +1,34 @@
 import './button.css'
 export default {
-  name: 'v-button',
+  name : 'v-button',
   // functional: true,
-  props: {
+  props : {
     disabled: Boolean,
     flat: Boolean,
     type: {
       type: String,
-      default: 'plain'
+      default: 'button'
     }
   },
-  computed: {
-    classes: {
-      'v-btn__plain': this.type === 'plain',
-      'v-btn__danger': this.type === 'danger',
-      'v-btn__primary': this.type === 'primary',
-      'v-btn__info': this.type === 'info',
-      'v-btn__flat': this.flat,
-      'v-btn__round': this.round,
+  computed : {
+    classes() {
+      return {
+        'v-btn--plain': this.type === 'plain',
+        'v-btn--danger': this.type === 'danger',
+        'v-btn--primary': this.type === 'primary',
+        'v-btn--error': this.type === 'error',
+        'v-btn--info': this.type === 'info',
+        'v-btn--flat': this.flat,
+        'v-btn--round': this.round,
+        'v-btn--disabled': this.disabled
+      }
     }
   },
   render(h) {
     return h('button', {
       staticClass: 'v-btn',
-      'class': this.classes
+      'class': this.classes,
+      on: this.$listeners
     }, [this.$slots.default])
   }
 }
