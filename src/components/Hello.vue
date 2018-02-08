@@ -53,11 +53,14 @@ export default {
   //     return width
   //   }
   // },
-  // watch: {
-  //   show() {
-  //     width >= 1024 ? 'full' : 'small'
-  //   }
-  // },
+  watch: {
+    show() {
+      // width >= 1024 ? 'full' : 'small'
+    },
+    'name'(val, old) {
+      // console.log(val);
+    }
+  },
   methods: {
     click() {
       console.log("clicked.");
@@ -74,6 +77,7 @@ export default {
 
     </div>
     <v-input v-model="name" />
+    <v-input type='textarea' />
     <v-comment />
     <v-card />
     <v-card />
@@ -83,8 +87,6 @@ export default {
     <v-loading @click="click" />
     <tag-list :tags='category'  />
     <v-icon />
-    <v-avatar :url='url' round="4%" />
-    <!-- <v-footer /> -->
   </div>
 </template>
 <style lang="stylus" scoped>

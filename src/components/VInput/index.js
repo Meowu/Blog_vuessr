@@ -4,6 +4,13 @@ export default {
   props : {
     value: [Number, String],
     required: Boolean,
+    readonly: Boolean,
+    disabled: Boolean,
+    autoComplete: {
+      type: Boolean,
+      default: 'off',
+    },
+    autofocus: Boolean,
     label: String,
     placeholder: {
       type: String,
@@ -15,9 +22,19 @@ export default {
     }
   },
   data: () => ({
-    // value: ''
+    currentValue: ''
   }),
+  watch: {
+    'value'(val, old) {
+      console.log(this.currentValue);
+      console.log(val);
+      console.log(old);
+    }
+  },
   methods : {
+    setValue(val) {
+      this.currentValue = val
+    },
     genLabel(h) {
       const name = this.label
       return h('label', {
@@ -29,23 +46,30 @@ export default {
     },
     genInput(h) {
       const self = this
-      return h('input', {
+      const tag = this.type === 'text' ? 'input' : 'textarea'
+
+      const data = {
         staticClass: 'v-input',
         domProps: {
-          value: self.value
+          value: this.currentValue,
+          autofocus: this.autofocus,
+          required: this.required,
+          disabled: this.disabled,
         },
         on: {
           input(e) {
-            // self.value = e.target.value
-            self.$emit('input', e.target.value)
+            const value = e.target.value
+            self.setValue(value)
+            self.$emit('input', value)
           }
         },
         attrs: {
-          value: this.value,
+          autocomplete: this.autoComplete,
           type: this.type,
           placeholder: this.placeholder
         }
-      })
+      }
+      return h(tag, data)
     }
   },
   render(h) {

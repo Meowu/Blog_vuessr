@@ -3,7 +3,7 @@ export default {
   name: 'v-taglist',
   functional: true,
   render(h, { data, props, listeners, children}) {
-    const child = props.tags.map(tag => h(VChip, {}, tag.name))
+    const child = props.tags.map(tag => h(VChip, {}, tag))
     const datas = {
       staticClass: 'tag-class',
       on: listeners,
