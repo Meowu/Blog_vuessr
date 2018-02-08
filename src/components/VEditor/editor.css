@@ -1,0 +1,11 @@
+.v-editor {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0 .5rem;
+  margin: .5rem 0;
+}
+
+.v-editor > .v-input__outer {
+  margin-bottom: 20px;
+  max-width: 400px;
+}

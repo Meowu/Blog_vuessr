@@ -2,6 +2,7 @@ import VComment from '../components/Comment'
 import VIcon from '../components/VIcon'
 import VReaction from '../components/UserReaction'
 import VChip from '../components/Chip/VChip'
+import VEditor from '../components/VEditor'
 import './article.css'
 import './github-markdown.css'
 import './hljs.css'
@@ -130,6 +131,6 @@ export default {
   },
   render(h) {
     const cms = this.article.comments
-    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, this.article.html_string), this.genTags(h), this.genReaction(h), this.genComments(h, cms)])
+    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, this.article.html_string), this.genTags(h), this.genReaction(h), this.genComments(h, cms), h(VEditor)])
   }
 }
