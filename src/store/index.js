@@ -13,6 +13,7 @@ const REPLY_COMMENT = 'REPLY_COMMENT'
 const SET_CATEGORIES = 'SET_CATEGORIES'
 const SET_TAGS = 'SET_TAGS'
 const SET_PARAMS = 'SET_PARAMS'
+const SET_LOAD = 'SET_LOAD'
 
 export function createStore() {
   return new Vuex.Store({
@@ -39,8 +40,11 @@ export function createStore() {
         }
       },
       [ARTICLE_ITEM](state, data) {
-        console.log(data);
         state.content = data
+      },
+      [SET_LOAD](state) {
+        state.loadmore = true
+        state.params.page++
       },
       [SET_CATEGORIES](state, data) {
         // Vue.set(state, 'categories', data)

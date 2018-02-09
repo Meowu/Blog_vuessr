@@ -1,6 +1,7 @@
 import VArticle from './ArticleCard'
 import VList from '../components/List'
 import VChip from '../components/Chip/VChip'
+import VLoading from '../components/Loading'
 import Api from '../api'
 import './home.css'
 export default {
@@ -42,6 +43,14 @@ export default {
     genArticles(h, articles) {
       // const articles = [1, 2]
       const children = articles.map(article => h(VArticle, {props: {meta: article}}))
+      children.push(h(VLoading, {
+        on: {
+          click: () => {
+            this.$store.commit('SET_LOAD')
+            this.$store.dispatch('getArticles')
+          }
+        }
+      }))
       return h('section', {staticClass: 'articles'}, children)
     },
     genTags(h) {
