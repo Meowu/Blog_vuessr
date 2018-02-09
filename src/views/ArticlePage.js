@@ -110,7 +110,13 @@ export default {
       }, [
         h(VIcon, {
           on: {
-            click: () => this.$store.dispatch('upArticle', this.article._id).then(() => this.$refs.heart.style.color = 'rgb(222, 48, 48)').catch(e => {})
+            click: () => {
+              this.$bar.start()
+              this.$store.dispatch('upArticle', this.article._id).then(() => { 
+                this.$bar.finish()
+                this.$refs.heart.style.color = 'rgb(222, 48, 48)'
+              }).catch(e => {})
+            }
           },
           ref: 'heart',
         }),

@@ -85,3 +85,5 @@ router.onReady(() => {
 
   app.$mount("#app");
 });
+
+export default app

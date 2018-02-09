@@ -2,6 +2,7 @@
 import CONFIG from './config'
 import axios from 'axios'
 import intercept from './params'
+// import app from '../entry.client'
 
 
 axios.interceptors.request.use((config) => intercept(config))
@@ -34,6 +35,10 @@ class Api {
     config.method = data.method
     config.body = data.params
     axios.default.withCredentials = true
+    // app.$bar.start()
+    // setTimeout(() => {
+    //   app.$bar.finish()
+    // }, 2000);
     return axios(config)
   }
 }

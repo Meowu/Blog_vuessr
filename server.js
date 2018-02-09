@@ -80,6 +80,7 @@ function render(req, res) {
     url: req.url
   }
 
+  // 这里会请求数据？
   renderer.renderToString(context, (err, html) => {
     if (err) {
       return handleError(err)
