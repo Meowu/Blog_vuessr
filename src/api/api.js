@@ -3,6 +3,7 @@ import CONFIG from './config'
 import axios from 'axios'
 import intercept from './params'
 
+
 axios.interceptors.request.use((config) => intercept(config))
 
 class Api {

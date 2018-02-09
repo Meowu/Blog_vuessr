@@ -1,5 +1,7 @@
 import Vue from "vue";
 import { createApp } from "./app";
+import VBar from './plugins/v-progressbar'
+Vue.use(VBar)
 
 Vue.mixin({
   methods: {  // 方法没有注入
@@ -71,9 +73,11 @@ router.onReady(() => {
       return next();
     }
     // 如果有状态栏则在这里开始。
+    app.$bar.start()
     Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
       .then(() => {
         // 结束状态栏
+        app.$bar.finish()
         next();
       })
       .catch(next);

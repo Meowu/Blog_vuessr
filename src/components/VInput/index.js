@@ -7,7 +7,7 @@ export default {
     readonly: Boolean,
     disabled: Boolean,
     autoComplete: {
-      type: Boolean,
+      type: String,
       default: 'off',
     },
     autofocus: Boolean,
