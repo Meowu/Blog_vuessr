@@ -8,7 +8,7 @@ export default {
     }
   },
   render(h, {data, props, listeners}) {
-    data.staticClass = (`v-icon fa fa-${props.icon} ${data.staticClass || ''}`).trim()
+    data.staticClass = (`v-icon fab fa fa-${props.icon} ${data.staticClass || ''}`).trim()
 
     data.style = data.style || {}
     data.on = listeners

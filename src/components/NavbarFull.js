@@ -3,6 +3,8 @@ import VChip from './Chip/VChip'
 // import VButton from './VButton'
 import VButton from './VButton/index'
 import VInput from './VInput'
+import SocialButton from './SocialBtn'
+import SocialBtn from './SocialBtn';
 export default {
   name : "v-fullnav",
   // functional: true,
@@ -40,27 +42,28 @@ export default {
         staticClass: 'v-header',
         style: style
       }, [
-        h(Hamburger), navs,
+        navs,
+        h(SocialButton)
         // h(VButton, {   props: {     type: 'info'   },   on: {     click: () =>
         // console.log('clicked.')   } }, 'primary'), h(VButton, {   props: {     type:
         // 'success'   },   on: {     click: () => console.log('clicked.')   } },
         // 'success'), h(VInput),
-        h(VInput, {
-          props: {
-            label: '邮箱',
-            required: true
-          },
-          domProps: {
-            // value: self.value
-          },
-          on: {
-            input(e) {
-              // self.value = e.target.value
-              // this.$emit('input', e.target.value)
-            }
-          }
-        }),
-        h(VInput),
+        // h(VInput, {
+        //   props: {
+        //     label: '邮箱',
+        //     required: true
+        //   },
+        //   domProps: {
+        //     // value: self.value
+        //   },
+        //   on: {
+        //     input(e) {
+        //       // self.value = e.target.value
+        //       // this.$emit('input', e.target.value)
+        //     }
+        //   }
+        // }),
+        // h(VInput),
         // h(VButton, {   props: {     disabled: true   },   on: {     click: () =>
         // console.log('clicked.')   } }, '取消'), h(VButton, {   on: {     click: () =>
         // console.log('clicked.')   } }, '确定')
