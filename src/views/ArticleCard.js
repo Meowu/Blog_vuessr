@@ -69,7 +69,7 @@ export default {
         on: { 
           click: () => this.$router.push(`/articles/${this.meta.id}`)
         }
-      }, [h('span', this.meta.title), h('span',{style:{fontSize: '12px', fontWeight: '200', color: 'rgba(0,0,0,.5)', marginRight: '10px'}}, `${this.formatDate(time, 'yyyy-MM-dd')}`)])
+      }, [h('span', this.meta.title), h('span',{style:{fontSize: '13px', fontWeight: '400', color: 'rgba(0,0,0,.65)', marginRight: '10px'}}, `${this.formatDate(time, 'yyyy-MM-dd')}`)])
     },
     genText(h) {
       return h('p', {

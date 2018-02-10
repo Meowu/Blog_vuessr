@@ -1,5 +1,6 @@
 import Hamburger from './Hamburger'
 import VChip from './Chip/VChip'
+import SocialButton from './SocialBtn'
 export default {
   name: "v-navbar",
   // functional: true,
@@ -23,7 +24,7 @@ export default {
       return h('header', {
         staticClass: 'v-header',
         style: style
-      }, [h(Hamburger)])
+      }, [h(Hamburger), h(SocialButton)])
     },
     genNav(h, items) {
       const children = items.map(item => h('a', {

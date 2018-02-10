@@ -5,10 +5,14 @@ export default {
     icon: {
       type: String,
       default: 'heart',
-    }
+    },
+    fab: {type: Boolean, default: false}
   },
   render(h, {data, props, listeners}) {
-    data.staticClass = (`v-icon fab fa fa-${props.icon} ${data.staticClass || ''}`).trim()
+    const defaultCls = props.fab ? `fab fa-${props.icon}` : `fa fa-${props.icon}`
+    // console.log(data.staticClass);
+    // const cls = data.staticClass || defaultCls
+    data.staticClass = (`v-icon ${defaultCls}`).trim()
 
     data.style = data.style || {}
     data.on = listeners
