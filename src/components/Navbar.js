@@ -35,6 +35,7 @@ export default {
           flex: '1 1 auto',
           fontSize: '15px',
           textAlign: 'center',
+          cursor: 'pointer'
         },
         'class': {
           'is-active': this.route === item.path
