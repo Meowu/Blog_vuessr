@@ -12,7 +12,7 @@ import VAvatar from "./Avatar";
 import VComment from "./Comment";
 import VIcon from "./VIcon";
 import VInput from './VInput';
-import VEditor from './VEditor'
+// import VEditor from './VEditor'
 export default {
   name: "Hello",
   components: {
@@ -29,7 +29,7 @@ export default {
     VComment,
     VIcon,
     VInput,
-    VEditor
+    // VEditor
   },
   data() {
     return {
@@ -81,7 +81,7 @@ export default {
     <v-input v-model="name" :autofocus='true' />
     <v-input type='textarea' rows='6' />
     <v-comment />
-    <v-editor />
+    <!-- <v-editor /> -->
     <v-list :list="category" title='分类查看' />
     <v-loading @click="click" />
     <tag-list :tags='category'  />

@@ -126,7 +126,10 @@ export default {
       const replyBtn = h('button', {
         staticClass: 'user-reply',
         on: {
-          click: () => {}
+          click: () => {
+            console.log('clicked');
+            const editor = new VEditor({target: '.article-main .user-reaction'})
+          }
         }
       }, '回复')
       children.push(replyBtn)
@@ -137,6 +140,6 @@ export default {
   },
   render(h) {
     const cms = this.article.comments
-    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, this.article.html_string), this.genTags(h), this.genReaction(h), this.genComments(h, cms), h(VEditor)])
+    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, this.article.html_string), this.genTags(h), this.genReaction(h), this.genComments(h, cms)])
   }
 }
