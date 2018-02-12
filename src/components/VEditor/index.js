@@ -1,6 +1,7 @@
 import VInput from "../VInput";
 import VButton from "../VButton";
 import Vue from "vue";
+// import { store } from '../../entry.client'
 import Api from "../../api";
 import "./editor.css";
 const editor = {
@@ -13,7 +14,7 @@ const editor = {
     return {
       comment: {
         name: "",
-        mail: "",
+        email: "",
         content: "",
         site: ""
       }
@@ -39,10 +40,10 @@ const editor = {
         label: "邮箱",
         required: true,
         placeholder: "请输入邮箱（不公开）",
-        value: this.comment.mail
+        value: this.comment.email
       },
       on: {
-        input: val => this.comment.mail = val
+        input: val => this.comment.email = val
       }
     });
     const siteField = h(VInput, {
@@ -82,7 +83,20 @@ const editor = {
         }
       }, "取消"), h(VButton, {
         on: {
-          click: () => console.log(this.comment)
+          click: () => {
+            console.log(this.articleId, this.commentId)
+            if (this.commentId) {
+              this.$bar.start()
+              Api.replyComments(this.commentId, this.comment).then(() => {
+                this.$bar.finish()
+              })
+            } else if (this.articleId) {
+              this.$bar.start()
+              Api.replyArticles(this.articleId, this.comment).then(() => {
+                this.$bar.finish()
+              })
+            }
+          }
         }
       },"提交")]
     );
@@ -101,7 +115,8 @@ let instance;
 const EditorConstructor = Vue.extend(editor);
 const defaults = {
   target: null,
-  reply: "article"
+  articleId: '',
+  commentId: '',
 };
 
 EditorConstructor.prototype.close = function() {
@@ -130,7 +145,8 @@ const Editor = (options = {}) => {
   instance = new EditorConstructor({
     el: document.createElement("div"),
     propsData: {
-      reply: options.reply
+      articleId: options.articleId,
+      commentId: options.commentId
     }
   });
   parent.appendChild(instance.$el);

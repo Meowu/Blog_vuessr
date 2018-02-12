@@ -98,7 +98,9 @@ export default {
       }, [h('div', {staticClass: 'comment-header'}, [this.genMeta(h)]), h('div', {staticClass: 'comment-content', domProps: {innerHTML: this.content.content}}), h(VReaction, {props: {reply: this.reply, likes: this.content.ups}, style: {marginTop: '20px'}, 
       on: {
         click: () => {
-          const editor = new VEditor({target: this.$el.parentNode})
+          // console.log('clicked comment.')
+          // console.log(this.content)
+          const editor = new VEditor({target: this.$el.parentNode, commentId: this.content._id})
         }
       }
     })])

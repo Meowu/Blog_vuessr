@@ -30,7 +30,7 @@ class Api {
 
   request(data) {
     let config = Object.assign({}, CONFIG) // 这里不能用const，
-    data.header && (config.headers = data.header)
+    data.headers && (config.headers = data.headers)
     config.url = data.url
     config.method = data.method
     config.body = data.params

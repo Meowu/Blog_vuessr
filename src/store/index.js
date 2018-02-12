@@ -83,11 +83,11 @@ export function createStore() {
         return Api
           .upArticles(id)
       },
-      addComments({
+      replyArticles({
         commit
       }, payload) {
         return Api
-          .addComments(payload)
+          .addComments(payload.id, payload.body)
           .then(res => {})
           .catch(e => {})
       },
@@ -95,7 +95,7 @@ export function createStore() {
         commit
       }, payload) {
         return Api
-          .replyComments(payload)
+          .replyComments(payload.id, payload.body)
           .then(res => {})
           .catch(e => {})
       },

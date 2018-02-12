@@ -131,7 +131,7 @@ export default {
         on: {
           click: () => {
             console.log('clicked');
-            const editor = new VEditor({target: '.article-main .user-reaction'})
+            const editor = new VEditor({target: '.article-main .user-reaction', articleId: this.id})
           }
         }
       }, '回复')

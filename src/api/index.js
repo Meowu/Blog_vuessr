@@ -1,5 +1,5 @@
 import Api from './api'
-import APPLICATION_JSON from './config'
+import { APPLICATION_JSON } from './config'
 
 export default {
   /**
@@ -57,21 +57,22 @@ export default {
   /**
    * 
    * @param {*Object} body 
-   * name,email,site,content,avatar,articleId || commentId
+   * name,email,site,content,avatar
    */
-  addComments(body) {
+  replyComments(id, body) {
     const data = {
       headers: APPLICATION_JSON,
-      url: '/comments/new',
+      url: `/comments/${id}`,
       params: body
     }
     return Api.post(data)
   },
 
-  replyComments(body) {
+  replyArticles(id, body) {
+    console.log('id: ', id)
     const data = {
       headers: APPLICATION_JSON,
-      url: '/comments/new',
+      url: `/articles/${id}/comments`,
       params: body
     }
     return Api.post(data)
@@ -92,5 +93,4 @@ export default {
     }
     return Api.get(data)
   }
-  // replyComments(body) 
 }
