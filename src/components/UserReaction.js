@@ -23,9 +23,6 @@ export default {
     if (props.reply) {
       const replyBtn = h('button', {
         staticClass: 'user-reply',
-        on: {
-          click: () => {}
-        }
       }, '回复')
       children.push(replyBtn)
     }

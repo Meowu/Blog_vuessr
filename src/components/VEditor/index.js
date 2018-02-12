@@ -6,10 +6,8 @@ import "./editor.css";
 const editor = {
   name: "v-editor",
   props: {
-    reply: {
-      type: String,
-      default: "article"
-    }
+    articleId: String,
+    commentId: String,
   },
   data() {
     return {
@@ -33,7 +31,7 @@ const editor = {
         value: this.comment.name
       },
       on: {
-        input: val => (this.mail = val)
+        input: val => this.comment.name = val
       }
     });
     const mailField = h(VInput, {
@@ -44,7 +42,7 @@ const editor = {
         value: this.comment.mail
       },
       on: {
-        input: val => (this.mail = val)
+        input: val => this.comment.mail = val
       }
     });
     const siteField = h(VInput, {
@@ -54,7 +52,7 @@ const editor = {
         value: this.comment.site
       },
       on: {
-        input: val => (this.mail = val)
+        input: val => this.comment.site = val
       }
     });
     const contentField = h(VInput, {
@@ -62,10 +60,10 @@ const editor = {
         label: "内容",
         type: "textarea",
         required: true,
-        content: this.comment.content
+        value: this.comment.content
       },
       on: {
-        input: val => (this.mail = val)
+        input: val => this.comment.content = val
       }
       // style
     });
@@ -84,7 +82,7 @@ const editor = {
         }
       }, "取消"), h(VButton, {
         on: {
-          click: () => console.log('submit')
+          click: () => console.log(this.comment)
         }
       },"提交")]
     );
@@ -126,11 +124,9 @@ const Editor = (options = {}) => {
   }
   options.target = options.target || document.body;
   if (instance) {
-    console.log("existed.");
-    return instance;
+    instance.close()
   }
-  const parent =
-    options.target === document.body ? document.body : options.target;
+  const parent = options.target === document.body ? document.body : options.target;
   instance = new EditorConstructor({
     el: document.createElement("div"),
     propsData: {
@@ -138,7 +134,6 @@ const Editor = (options = {}) => {
     }
   });
   parent.appendChild(instance.$el);
-  console.log("new");
   return instance;
 };
 

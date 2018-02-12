@@ -82,10 +82,13 @@ export default {
       comments = comments || []
       const children = comments.map(cm => {
         let replies
+        let sub_child = [h(VComment, {props: {reply: true, content: cm}})]
         if (cm.replies.length) {
           replies = cm.replies.map(reply => h(VComment, {props: {side: 'right', content: reply}}))
+          // replies
+          sub_child.push(h('div', {staticClass: 'comment-replies'}, replies))
         }
-        return h('article', {staticClass: 'article-comments'}, [h(VComment, {props: {reply: true, content: cm}}), h('div', {staticClass: 'comment-replies'}, replies)])
+        return h('article', {staticClass: 'article-comments'}, sub_child)
       })
       const content = h('div', {
         staticClass: 'comment'
@@ -139,7 +142,9 @@ export default {
     }
   },
   render(h) {
+    const children = [this.genHeader(h), this.genMain(h, this.article.html_string), this.genTags(h), this.genReaction(h)]
     const cms = this.article.comments
-    return h('main', {staticClass: 'article-main'}, [this.genHeader(h), this.genMain(h, this.article.html_string), this.genTags(h), this.genReaction(h), this.genComments(h, cms)])
+    cms.length > 0 && children.push(this.genComments(h, cms))
+    return h('main', {staticClass: 'article-main'}, children)
   }
 }

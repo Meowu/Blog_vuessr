@@ -1,6 +1,7 @@
 import VAvatar from './Avatar'
 import VIcon from './VIcon'
 import VReaction from './UserReaction'
+import VEditor from '../components/VEditor'
 import './comment.css'
 export default {
   name: 'v-comment',
@@ -64,7 +65,11 @@ export default {
       const replyBtn = h('button', {
         staticClass: 'comment-reply',
         on: {
-          click: () => {}
+          click: () => {
+            // console.log('clicked');
+            // const editor = new VEditor({target: '.article-main .user-reaction'})
+            console.log(this.$el)
+          }
         }
       }, '回复')
       this.reply && children.push(replyBtn)
@@ -90,7 +95,13 @@ export default {
     genMain(h) {
       return h('div', {
         staticClass: 'comment-main'
-      }, [h('div', {staticClass: 'comment-header'}, [this.genMeta(h)]), h('div', {staticClass: 'comment-content', domProps: {innerHTML: this.content.content}}), h(VReaction, {props: {reply: this.reply, likes: this.content.ups}, style: {marginTop: '20px'}})])
+      }, [h('div', {staticClass: 'comment-header'}, [this.genMeta(h)]), h('div', {staticClass: 'comment-content', domProps: {innerHTML: this.content.content}}), h(VReaction, {props: {reply: this.reply, likes: this.content.ups}, style: {marginTop: '20px'}, 
+      on: {
+        click: () => {
+          const editor = new VEditor({target: this.$el.parentNode})
+        }
+      }
+    })])
     }
   },
   render(h) {

@@ -3,9 +3,14 @@
   flex-flow: column nowrap;
   padding: 0 .5rem;
   margin: .5rem 0;
+  text-align: right;
 }
 
 .v-editor > .v-input__outer {
   margin-bottom: 20px;
   max-width: 400px;
+}
+
+.v-editor .btn-group {
+  margin-bottom: 10px;
 }
