@@ -38,7 +38,10 @@ export default {
   },
   methods: {
     genSidebar(h, cates) {
-      return h('sidebar', {staticClass: 'sidebar'}, [h(VList, {props: {list: cates, title: '分类查看'}}), this.genTags(h)])
+      return h('sidebar', {staticClass: 'sidebar', style: {
+        flex: '1 1 25%',
+        paddingLeft: '40px',
+      }}, [h(VList, {props: {list: cates, title: '分类查看'}}), this.genTags(h)])
     },
     genArticles(h, articles) {
       // const articles = [1, 2]
@@ -46,26 +49,34 @@ export default {
       children.push(h(VLoading, {
         on: {
           click: () => {
+            this.$bar.start()
             this.$store.commit('SET_LOAD')
-            this.$store.dispatch('getArticles')
+            this.$store.dispatch('getArticles').then(_ => this.$bar.finish())
           }
         }
       }))
-      return h('section', {staticClass: 'articles'}, children)
+      return h('section', {staticClass: 'articles', style: {
+        width: '75%',
+        flex: '1 1 75%'
+      }}, children)
     },
     genTags(h) {
       const children = this.tags.map(tag => h(VChip, {
         props: {tag: tag},
         on: {
           click: () => {
+            this.$bar.start()
             this.$store.commit('SET_PARAMS', {page: 1, page_size: 15, tag: tag.id, category: ''})
-            this.$store.dispatch('getArticles').then(() => this.$router.push(`/articles/tags/${tag.name.toLowerCase()}`))
+            this.$store.dispatch('getArticles').then(() => {
+              this.$bar.finish()
+              this.$router.push(`/articles/tags/${tag.name.toLowerCase()}`)
+            })
           }
         }
       }))
-      const title = h('h3', {staticClass: 'taglist-title'}, '标签列表')
-      const list = h('div', {staticClass: 'taglist-body'}, children)
-      return h('div', {staticClass: 'taglist'}, [title, list])
+      const title = h('h3', {staticClass: 'tag-list-title'}, '标签列表')
+      const list = h('div', {staticClass: 'tag-list-body'}, children)
+      return h('div', {staticClass: 'tag-list'}, [title, list])
     }
   },
   render(h) {

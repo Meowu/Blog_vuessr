@@ -8,21 +8,22 @@
   align-items: flex-start;
 }
 
-.main > .articles {
+/* .main > .articles {
+  width: 75%;
   flex: 1 1 75%;
-}
+} */
 
-.main > .sidebar {
+/* .main > .sidebar {
   flex: 1 1 25%;
   padding-left: 40px;
-}
+} */
 
-.main > .sidebar .taglist {
+.main > .sidebar .tag-list {
   padding: 0 10px;
   margin-top: 20px;
 }
 
-.main > .sidebar .taglist-title {
+.main > .sidebar .tag-list-title {
   font-size: 18px;
   padding: 8px 0;
   font-weight: 400;

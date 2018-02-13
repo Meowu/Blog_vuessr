@@ -26,8 +26,12 @@ export default {
         staticClass: 'list-item__name',
         on: {
           click: () => {
+            this.$bar.start()
             this.$store.commit('SET_PARAMS', {page: 1, page_size: 15, tag: '', category: item.id})
-            this.$store.dispatch('getArticles').then(() => this.$router.push(`/articles/categories/${item.name.toLowerCase()}`))
+            this.$store.dispatch('getArticles').then(() => {
+              this.$bar.finish()
+              this.$router.push(`/articles/categories/${item.name.toLowerCase()}`)
+            })
           }
         }
       }, item.name)
