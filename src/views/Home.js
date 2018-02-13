@@ -3,7 +3,6 @@ import VList from '../components/List'
 import VChip from '../components/Chip/VChip'
 import VLoading from '../components/Loading'
 import Api from '../api'
-import './home.css'
 export default {
   name: 'v-home',
   asyncData({store}) {
@@ -38,10 +37,12 @@ export default {
   },
   methods: {
     genSidebar(h, cates) {
-      return h('sidebar', {staticClass: 'sidebar', style: {
-        flex: '1 1 25%',
-        paddingLeft: '40px',
-      }}, [h(VList, {props: {list: cates, title: '分类查看'}}), this.genTags(h)])
+      return h('sidebar', {staticClass: 'sidebar', 
+      //   style: {
+      //   flex: '1 1 25%',
+      //   paddingLeft: '40px',
+      // }
+    }, [h(VList, {props: {list: cates, title: '分类查看'}}), this.genTags(h)])
     },
     genArticles(h, articles) {
       // const articles = [1, 2]
@@ -80,6 +81,14 @@ export default {
     }
   },
   render(h) {
-    return h('main', {staticClass: 'main'}, [this.genArticles(h, this.articles), this.genSidebar(h, this.categories)])
+    return h('main', {staticClass: 'main', 
+    // style: {
+    //   padding: '.33333rem',
+    //   display: 'flex',
+    //   flexFlow: 'row nowrap',
+    //   justifyContent: 'space-around',
+    //   alignItems: 'flex-start'
+    // }
+  }, [this.genArticles(h, this.articles), this.genSidebar(h, this.categories)])
   }
 }

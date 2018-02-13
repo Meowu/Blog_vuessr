@@ -29,19 +29,20 @@ export default {
     const style = {
       display: 'inline-flex',
       alignItems: 'center',
-      color: 'rgba(0, 0, 0, .8)',
+      color: '#FEFEFE',
       borderRadius: '4px',
-      backgroundColor: 'rgba(75, 76, 71, .1)',
+      backgroundColor: 'rgba(75,76,71,.3)',
       margin: '4px',
       verticalAlign: 'middle',
-      outline: 'none'
+      outline: 'none',
+      cursor: 'pointer'
     }
     const data = {
       staticClass: 'chip',
       style: style,
       on: Object.assign({}, { 
-        mouseenter: e => e.target.style.backgroundColor = 'rgba(75, 76, 71, .3)',
-        mouseleave: e => e.target.style.backgroundColor = 'rgba(75, 76, 71, .1)',
+        mouseenter: e => e.target.style.backgroundColor = 'rgba(75, 76, 71, .6)',
+        mouseleave: e => e.target.style.backgroundColor = 'rgba(75,76,71,.3)',
         }, 
       this.$listeners)
     }
