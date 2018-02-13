@@ -12,6 +12,11 @@ export default {
     console.log(id);
     return store.dispatch('getArticleItem', id)
   },
+  provide() {
+    return {
+      refresh: this.getCurrent
+    }
+  },
   data() {
     return {
       // comments:
@@ -26,6 +31,9 @@ export default {
     }
   },
   methods: {
+    getCurrent() {
+      return this.$store.dispatch('getArticleItem', this.id)
+    },
     formatDate(timestamp, format='yyyy-MM-dd HH:mm') {
       if (!Number(timestamp)) {
         throw new Error("parameter must be a Number.")
@@ -116,8 +124,10 @@ export default {
             click: () => {
               this.$bar.start()
               this.$store.dispatch('upArticle', this.article._id).then(() => { 
-                this.$bar.finish()
-                this.$refs.heart.style.color = 'rgb(222, 48, 48)'
+                this.$store.dispatch('getArticleItem', this.id).then(() => {
+                  this.$bar.finish()
+                  this.$refs.heart.style.color = 'rgb(222, 48, 48)'
+                }).catch(e => {})
               }).catch(e => {})
             }
           },
@@ -131,7 +141,11 @@ export default {
         on: {
           click: () => {
             console.log('clicked');
-            const editor = new VEditor({target: '.article-main .user-reaction', articleId: this.id})
+            const editor = new VEditor({
+              target: '.article-main .user-reaction', 
+              articleId: this.id,
+              parent: this
+            })
           }
         }
       }, '回复')

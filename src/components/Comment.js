@@ -100,7 +100,7 @@ export default {
         click: () => {
           // console.log('clicked comment.')
           // console.log(this.content)
-          const editor = new VEditor({target: this.$el.parentNode, commentId: this.content._id})
+          const editor = new VEditor({target: this.$el.parentNode, commentId: this.content._id, parent: this})
         }
       }
     })])

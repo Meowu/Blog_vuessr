@@ -10,6 +10,7 @@ const editor = {
     articleId: String,
     commentId: String,
   },
+  inject: ['refresh'],
   data() {
     return {
       comment: {
@@ -88,12 +89,17 @@ const editor = {
             if (this.commentId) {
               this.$bar.start()
               Api.replyComments(this.commentId, this.comment).then(() => {
-                this.$bar.finish()
+                this.refresh().then(() => {
+                  this.$bar.finish()
+                })
               })
             } else if (this.articleId) {
               this.$bar.start()
               Api.replyArticles(this.articleId, this.comment).then(() => {
-                this.$bar.finish()
+                console.log(this.$parent)
+                this.$parent.getCurrent().then(() => {
+                  this.$bar.finish()
+                })
               })
             }
           }
@@ -117,6 +123,7 @@ const defaults = {
   target: null,
   articleId: '',
   commentId: '',
+  parent: null,
 };
 
 EditorConstructor.prototype.close = function() {
@@ -144,6 +151,7 @@ const Editor = (options = {}) => {
   const parent = options.target === document.body ? document.body : options.target;
   instance = new EditorConstructor({
     el: document.createElement("div"),
+    parent: options.parent,  // 因为实例是动态创建的，因此它是没有上下文关系的，或者说它只有自己的作用域，无法访问父实例。有必要的话，可以传入 parent 来指定其父实例，然后通过 $parent 或者 $children 就可以实现父子间通讯。此外还可以实现依赖注入 provide/inject 来访问父组件的内容。
     propsData: {
       articleId: options.articleId,
       commentId: options.commentId
