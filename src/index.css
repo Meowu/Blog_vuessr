@@ -164,6 +164,11 @@ a {
   color: rgba(0, 0, 0, .8);
 }
 
+.main .articles .load-more {
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .nav-toggle {
   padding: 10px;
   position: relative;

@@ -26,6 +26,7 @@
   height: 160px;
   line-height: 1.5;
   font-size: 14px;
+  font-family: inherit;  /* 在 chrome 下它会继承系统默认的样式，monospace */
 }
 
 .v-input__outer .v-input__label {

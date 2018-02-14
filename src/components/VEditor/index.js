@@ -1,6 +1,7 @@
 import VInput from "../VInput";
 import VButton from "../VButton";
 import Vue from "vue";
+import genTextImage from "../../utils/TextToImage"
 // import { store } from '../../entry.client'
 import Api from "../../api";
 import "./editor.css";
@@ -17,7 +18,8 @@ const editor = {
         name: "",
         email: "",
         content: "",
-        site: ""
+        site: "",
+        avatar: "",
       }
     };
   },
@@ -86,6 +88,8 @@ const editor = {
         on: {
           click: () => {
             console.log(this.articleId, this.commentId)
+            const image = genTextImage(this.comment.name)
+            this.comment.avatar = image
             if (this.commentId) {
               this.$bar.start()
               Api.replyComments(this.commentId, this.comment).then(() => {
@@ -162,7 +166,7 @@ const Editor = (options = {}) => {
   top += (window.pageYOffset - 180)
   // 因为编辑框是动态创建并添加到当前评论后面的，如果回复评论较多它可能不会出现在视口内，因此手动计算滚动到合适的位置。
   // Todo：添加动画优化体验，避免编辑框出现得太突然。
-  window.scrollTo(0, top)  
+  window.scrollTo(0, top)
   return instance;
 };
 
