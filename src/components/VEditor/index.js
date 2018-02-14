@@ -158,6 +158,11 @@ const Editor = (options = {}) => {
     }
   });
   parent.appendChild(instance.$el);
+  let top = instance.$el.getBoundingClientRect().top
+  top += (window.pageYOffset - 180)
+  // 因为编辑框是动态创建并添加到当前评论后面的，如果回复评论较多它可能不会出现在视口内，因此手动计算滚动到合适的位置。
+  // Todo：添加动画优化体验，避免编辑框出现得太突然。
+  window.scrollTo(0, top)  
   return instance;
 };
 
