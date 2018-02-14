@@ -15,6 +15,7 @@ export default {
     data.staticClass = (`v-icon ${defaultCls}`).trim()
 
     data.style = data.style || {}
+    data.style.color = 'steelblue'
     data.on = listeners
     // data.style.margin = '0 6px'
     // return h('i', {

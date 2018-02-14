@@ -43,7 +43,7 @@ export default {
         throw new Error('Number expected to be 10 or 13 at length.')
       }
       const time = Number(timestamp).toString().length === 10 ? timestamp*1000 : timestamp
-      
+
       const padZero = number => number.toString().replace(/^(\d)$/, "0$1") // 补0
       const newDate = new Date(Number(time))
       const year = newDate.getFullYear()
@@ -51,7 +51,7 @@ export default {
       const date = newDate.getDate()
       const hours = newDate.getHours()
       const minutes = newDate.getMinutes()
-      
+
       switch (format) {
         case 'yyyy-MM-dd':
           return `${padZero(year)}-${padZero(month)}-${padZero(date)}`
@@ -84,7 +84,7 @@ export default {
     },
     genBar(h) {
       let likes = 10
-      // let 
+      // let
     },
     genComments(h, comments) {
       comments = comments || []
@@ -104,13 +104,8 @@ export default {
       return h('section', {staticClass: 'comment-list'}, children)
     },
     genTags(h) {
-      const style = {
-        padding: '15px 0'
-        // marginBottom: '10px'
-      }
       const children = this.article.tags.map(tag => h(VChip, {props: {tag: tag}}))
       return h('div', {
-        style: style,
         staticClass: 'card-tags'
       }, children)
     },
@@ -123,7 +118,7 @@ export default {
           on: {
             click: () => {
               this.$bar.start()
-              this.$store.dispatch('upArticle', this.article._id).then(() => { 
+              this.$store.dispatch('upArticle', this.article._id).then(() => {
                 this.$store.dispatch('getArticleItem', this.id).then(() => {
                   this.$bar.finish()
                   this.$refs.heart.style.color = 'rgb(222, 48, 48)'
@@ -142,7 +137,7 @@ export default {
           click: () => {
             console.log('clicked');
             const editor = new VEditor({
-              target: '.article-main .user-reaction', 
+              target: '.article-main .user-reaction',
               articleId: this.id,
               parent: this
             })
@@ -156,7 +151,10 @@ export default {
     }
   },
   render(h) {
-    const children = [this.genHeader(h), this.genMain(h, this.article.html_string), this.genTags(h), this.genReaction(h)]
+    const child = h('div', {
+      staticClass: 'article-footer',
+    }, [this.genTags(h), this.genReaction(h)])
+    const children = [this.genHeader(h), this.genMain(h, this.article.html_string), child]
     const cms = this.article.comments
     cms.length > 0 && children.push(this.genComments(h, cms))
     return h('main', {staticClass: 'article-main'}, children)

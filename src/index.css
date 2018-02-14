@@ -22,9 +22,10 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  /* background-color: lighten(#eceef1, 30%); */
+  /* background-color: #F1F2FE; */
+  background: linear-gradient(rgb(249, 248, 247), rgb(251, 250, 248) 46px, rgb(251, 251, 249) 120px, rgb(248, 247, 245) 35%, rgb(249, 248, 246));
   /* background-color: rgba(177, 6, 6, 0.5); */
-  background-color: #fff;
+  /* background-color: #fff; */
   font-size: 0.24rem;
   color: #34495e;
   /* overflow-y scroll */
@@ -64,7 +65,7 @@ a {
   background-color: aliceblue;
 }
 
-/* 
+/*
 @media screen and (min-width: 1024px) {
 
   .navbar {
@@ -98,12 +99,12 @@ a {
     width: 960px;
     margin: 90px auto 0;
   }
-  
+
   .navbar {
     display: none;
     visibility: hidden
   }
-  
+
   .full-navbar {
     display: block;
     width: 960px;
@@ -116,11 +117,11 @@ a {
     display: none;
     visibility: hidden;
   }
-  
+
   .navbar {
     display: block;
   }
-  
+
   .sidebar {
     display: none;
   }

@@ -36,7 +36,6 @@ export default {
         margin: '0 auto',
         padding: '0 0.333rem',
         justifyContent: 'space-between',
-        borderBottom: '1px solid #eee'
       }
       return h('header', {
         staticClass: 'v-header',

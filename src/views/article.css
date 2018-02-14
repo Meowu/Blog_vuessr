@@ -12,12 +12,28 @@
 
 @media screen and (max-width: 768px) {
   .article-main {
-    padding: 0 20px;
+    padding: 0 12px;
   }
 }
 
-.article-main > .user-reaction {
+.article-main .article-footer > .user-reaction {
   text-align: right;
+  /* padding: 15px; */
+  background-color: #FFF;
+  flex: 0 0 90px;
+}
+
+/* .article-main .card-tags {
+  background-color: #FFF;
+  padding: 15px;
+} */
+
+.article-main .article-footer {
+  display: flex;
+  padding: 15px 35px;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #FFF;
 }
 
 .article-main > .user-reaction > button {
@@ -38,19 +54,23 @@
 }
 .article-header {
   width: 100%;
+  background-color: #fff;
+  padding: 15px 35px;
+  /* margin-bottom: 20px; */
+  border-bottom: 1px solid #EAECEF;
   /* color:  */
 }
 .article-main .article-title {
   font-size: 24px;
   font-weight: 600;
-  height: 1rem;
-  line-height: 1rem;
+  height: .8rem;
+  line-height: .8rem;
 }
 
 .article-meta {
   font-size: 14px;
   /* width: 100%; */
-  margin: 10px 0;
+  margin-top: 10px;
   color: rgba(0,0,0,.65);
 }
 
@@ -63,16 +83,17 @@
 }
 
 .article-main .comment-list {
-  margin: 20px 10px 30px 10px;
+  /* margin: 20px 10px 30px 10px; */
   /* padding: 20px 30px 20px 15px; */
-  /* padding: 0 20px; */
-  background-color: rgba(240, 240, 244, 0.5);
+  padding: 0 20px;
+  margin: 20px 0;
+  background-color: #FFF;
   /* border-top: 1px solid rgba(0,0,0,.3); */
 }
 
 .article-main .comment-list > .article-comments {
   /* padding-bottom: 20px; */
-  border-bottom: 1px solid rgba(200,200,200,.5);
+  border-bottom: 1px solid #EAECEF;
 }
 
 .article-main .comment-list > .article-comments:last-of-type {
@@ -94,7 +115,7 @@
 }
 
 .article-main .comment-replies .comment-item {
-  background-color: #FFF;
+  background-color: #F5F6F7;
   margin-bottom: 20px;
   border-radius: 3px;
 }
@@ -102,4 +123,25 @@
 
 .article-main .comment-replies .comment-item .comment-reply {
   display: none;
+}
+
+.markdown-body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px 35px;
+  background-color: #FFF;
+}
+
+@media (max-width: 767px) {
+  .markdown-body,
+  .article-header,
+  .article-main .article-footer {
+    padding: 15px;
+  }
+  /* .article-header,
+  .article-main .article-footer {
+    padding: 15px;
+  } */
 }
