@@ -62,6 +62,12 @@ export function createStore() {
         return Api  // 这里的 return 不能省，不然会变成同步代码。
           .getArticles(state.params)
           .then(res => {
+            // commit('SET_PARAMS', {
+            //   page: 1,
+            //   page_size: 15,
+            //   tag: '',
+            //   category: ''
+            // })
             commit('ARTICLE_LIST', res.data.data)
           })
           .catch(e => {})
@@ -100,7 +106,7 @@ export function createStore() {
           .catch(e => {})
       },
       getCategories({commit}) {
-        return Api   
+        return Api
           .getCategories()
           .then(res => commit('SET_CATEGORIES', res.data.data))
           .catch(e => {})

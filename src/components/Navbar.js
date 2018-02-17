@@ -41,7 +41,17 @@ export default {
           'is-active': this.route === item.path
         },
         on: {
-          click: () => this.$router.push(item.path)
+          click: () => {
+            if (Object.is(item.path, '/')){
+              this.$store.commit('SET_PARAMS', {
+                  page: 1,
+                  page_size: 15,
+                  tag: '',
+                  category: ''
+                })
+              }
+            this.$router.push(item.path)
+          }
         }
       }, item.name))
       const style = {
