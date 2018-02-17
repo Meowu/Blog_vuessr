@@ -6,7 +6,7 @@ import Api from '../api'
 export default {
   name: 'v-home',
   asyncData({store}) {
-    store.commit('SET_PARAMS', {page: 1, page_size: 10, tag: '', category: ''})
+    // store.commit('SET_PARAMS', {page: 1, page_size: 10, tag: '', category: ''})
     console.log('asyncData');
     return Promise.all([store.dispatch('getArticles'), store.dispatch('getCategories'), store.dispatch('getTags')])
     // return store.dispatch('getArticles')
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     genSidebar(h, cates) {
-      return h('sidebar', {staticClass: 'sidebar', 
+      return h('sidebar', {staticClass: 'sidebar',
       //   style: {
       //   flex: '1 1 25%',
       //   paddingLeft: '40px',
@@ -81,7 +81,7 @@ export default {
     }
   },
   render(h) {
-    return h('main', {staticClass: 'main', 
+    return h('main', {staticClass: 'main',
     // style: {
     //   padding: '.33333rem',
     //   display: 'flex',

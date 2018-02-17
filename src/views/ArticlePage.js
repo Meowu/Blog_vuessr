@@ -104,7 +104,26 @@ export default {
       return h('section', {staticClass: 'comment-list'}, children)
     },
     genTags(h) {
-      const children = this.article.tags.map(tag => h(VChip, {props: {tag: tag}}))
+      const children = this.article.tags.map(tag => h(VChip, {
+        props: {
+          tag: tag
+        },
+        on: {
+          click: (e) => {
+            this.$store.commit('SET_PARAMS', {
+              page: 1,
+              page_size: 10,
+              tag: tag._id,
+              category: ''
+            })
+            this.$bar.start()
+            this.$store.dispatch('getArticles').then(res => {
+              this.$bar.finish()
+              this.$router.push(`/articles/tags/${tag.name}`)
+            })
+          }
+        }
+      }))
       return h('div', {
         staticClass: 'card-tags'
       }, children)
