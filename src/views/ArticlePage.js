@@ -156,7 +156,7 @@ export default {
           click: () => {
             console.log('clicked');
             const editor = new VEditor({
-              target: '.article-main .user-reaction',
+              target: '.article-main .article-footer',
               articleId: this.id,
               parent: this
             })
@@ -172,7 +172,7 @@ export default {
   render(h) {
     const child = h('div', {
       staticClass: 'article-footer',
-    }, [this.genTags(h), this.genReaction(h)])
+    }, [h('div', {staticClass: 'article-footer__info'}, [this.genTags(h), this.genReaction(h)])])
     const children = [this.genHeader(h), this.genMain(h, this.article.html_string), child]
     const cms = this.article.comments
     cms.length > 0 && children.push(this.genComments(h, cms))

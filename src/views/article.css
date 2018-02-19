@@ -20,7 +20,7 @@
   text-align: right;
   /* padding: 15px; */
   background-color: #FFF;
-  flex: 0 0 90px;
+  /* flex: 0 0 90px; */
 }
 
 /* .article-main .card-tags {
@@ -29,11 +29,15 @@
 } */
 
 .article-main .article-footer {
-  display: flex;
+  background-color: #FFF;
   padding: 15px 35px;
+
+}
+
+.article-main .article-footer .article-footer__info {
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: #FFF;
 }
 
 .article-main > .user-reaction > button {
