@@ -14,8 +14,8 @@ export default {
     // const cls = data.staticClass || defaultCls
     data.staticClass = (`v-icon ${defaultCls}`).trim()
 
-    data.style = data.style || {}
-    data.style.color = 'steelblue'
+    data.style = data.style || {} // functional 组件更接近底层，这里定义的样式会覆盖 style 中定义的样式
+    !data.style.color && (data.style.color = 'steelblue')
     data.on = listeners
     // data.style.margin = '0 6px'
     // return h('i', {

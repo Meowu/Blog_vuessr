@@ -13,7 +13,7 @@ export  default {
       style: {
         marginBottom: '10px'
       }
-    }, `© Copyright ${year}`)
+    }, `© ${year}`)
     const author = h('a', {
       staticClass: 'footer__author',
       attrs: {
@@ -28,7 +28,7 @@ export  default {
       style: {
         margin: '10px auto'
       }
-    }, ['Written with  ', h(VIcon, {style: {margin: '0 8px', color: 'rgb(222, 48, 48)'}}), 'By', author])
+    }, ['Written with  ', h(VIcon, {style: {margin: '0 8px', color: 'red'}}), 'By', author])
     const style = {
       textAlign: position,
       backgroundColor: backgroundColor
