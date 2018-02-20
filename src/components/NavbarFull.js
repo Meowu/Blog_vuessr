@@ -29,7 +29,7 @@ export default {
       ])
       // const Chip = h(VChip, {}, 'Python')
       const style = {
-        height: '70px',
+        height: '50px',
         display: 'flex',
         alignItems: 'center',
         maxWidth: '960px',
@@ -50,7 +50,8 @@ export default {
         staticClass: 'nav-item',
         style: {
           height: '100%',
-          padding: '20px 0',
+          // padding: '20px 0',
+          lineHeight: '50px',
           width: '1.5rem',
           fontSize: '18px',
           textAlign: 'center',

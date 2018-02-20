@@ -1,12 +1,19 @@
 .article-main {
   width: 100%;
-  margin: 110px auto 10px;
+  margin: 90px auto 10px;
   font-size: 14px;
   /* padding: .4rem; */
 }
 @media screen and (min-width: 769px) {
   .article-main {
     width: 680px;
+  }
+}
+
+
+@media screen and (min-width: 769px) {
+  .article-main {
+    width: 750px;
   }
 }
 

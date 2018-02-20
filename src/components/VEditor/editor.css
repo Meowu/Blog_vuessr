@@ -2,7 +2,8 @@
   display: flex;
   flex-flow: column nowrap;
   padding: 0 .5rem;
-  margin: .5rem 0;
+  margin: .5rem auto;
+  max-width: 600px;
   text-align: right;
 }
 
