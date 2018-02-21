@@ -21,7 +21,8 @@ export default (context) =>  {
       if (!matchedComponents.length) {
         return reject({ code: 404 })
       }
-
+      console.log(matchedComponents);
+      console.log('router ready.');
       Promise.all(matchedComponents.map(({ asyncData }) => asyncData && asyncData({
         store,
         route: router.currentRoute
@@ -34,5 +35,5 @@ export default (context) =>  {
 
     }, reject)
   })
-  
+
 };
