@@ -5,6 +5,7 @@ import VEditor from '../components/VEditor'
 import './comment.css'
 export default {
   name: 'v-comment',
+  inject: ['refresh'],
   props: {
     side: {
       type: String,
@@ -56,26 +57,43 @@ export default {
     //   }
     // },
     genUpBtn() {
-      return this.$createElement('div', {
-        staticClass: 'comment-up'
-      }, [
-        this.$createElement('span', {
-          staticClass: 'comment-up__btn'
-        }),
-        this.$createElement('span', {
+      const children = []
+      children.push(this.$createElement('span', {
+        staticClass: 'comment-up__btn',
+        ref: 'btn'
+      }))
+      if (this.content.ups > 0) {
+        children.push(this.$createElement('span', {
           staticClass: 'comment-ups',
           domProps: {
             innerText: this.content.ups
           }
-        })
-      ])
+        }))
+      }
+      return this.$createElement('div', {
+        staticClass: 'comment-up',
+        on: {
+          click: e => {
+            this.$bar.start()
+            this.$store.dispatch('upComments', this.content._id).then( _ => {
+              this.refresh().then(() => {
+                this.$bar.finish()
+                this.$refs.up.style.color　= '#FFF'
+                this.$refs.btn.style.borderBottomColor　= '#FFF'
+                this.$refs.up.style.backgroundColor = '#0084FF'
+              })
+            })
+          }
+        },
+        ref: 'up'
+      }, children)
     },
     genReactions(h, text='回复') {
       const children = []
-      if (this.content.ups) {
-        const likes = h('button', {staticClass: 'comment-likes'}, [h(VIcon, {props: {icon: 'thumbs-up'}}), ])
-        children.push(likes)
-      }
+      // if (this.content.ups) {
+      //   const likes = h('button', {staticClass: 'comment-likes'}, [h(VIcon, {props: {icon: 'thumbs-up'}}), ])
+      //   children.push(likes)
+      // }
       // const reply = h('button', {st})
       const replyBtn = h('button', {
         staticClass: 'comment-reply',
@@ -110,7 +128,7 @@ export default {
     genMain(h) {
       return h('div', {
         staticClass: 'comment-main'
-      }, [h('div', {staticClass: 'comment-header'}, [this.genMeta(h)]), h('div', {staticClass: 'comment-content', domProps: {innerHTML: this.content.content}}), h(VReaction, {props: {reply: this.reply, likes: this.content.ups}, style: {marginTop: '20px'}, 
+      }, [h('div', {staticClass: 'comment-header'}, [this.genMeta(h)]), h('div', {staticClass: 'comment-content', domProps: {innerHTML: this.content.content}}), h(VReaction, {props: {reply: this.reply}, style: {marginTop: '20px'}, 
       on: {
         click: () => {
           // console.log('clicked comment.')

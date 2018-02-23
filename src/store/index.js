@@ -78,7 +78,6 @@ export function createStore() {
         return Api
           .getOneArticle(id)
           .then(res => {
-            console.log(res);
             commit('ARTICLE_ITEM', res.data.data)
           })
           .catch(e => {})
@@ -88,6 +87,9 @@ export function createStore() {
       }, id) {
         return Api
           .upArticles(id)
+      },
+      upComments({ commit }, id) {
+        return Api.upComments(id)
       },
       replyArticles({
         commit

@@ -14,7 +14,7 @@
 
 .comment-item .comment-side .comment-up {
   margin-top: 10px;
-  padding: 0 10px;
+  padding: 0 8px;
   border-radius: 3px;
   cursor: pointer;
   color: #0084ff;
@@ -28,9 +28,12 @@
   display: inline-block;
   /* width: 16px; */
   /* height: 16px; */
-  margin-right: 12px;
   border: 8px solid transparent;
   border-bottom-color: #0084FF;
+}
+
+.comment-item .comment-side .comment-up .comment-ups {
+  margin-left: 10px;
 }
 
 .comment-item .comment-main .user-reaction {
