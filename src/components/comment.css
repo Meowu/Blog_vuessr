@@ -12,6 +12,27 @@
   flex: 1 1 auto;
 }
 
+.comment-item .comment-side .comment-up {
+  margin-top: 10px;
+  padding: 0 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #0084ff;
+  background-color: rgba(0,132,255,.1);
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.comment-item .comment-side .comment-up .comment-up__btn {
+  display: inline-block;
+  /* width: 16px; */
+  /* height: 16px; */
+  margin-right: 12px;
+  border: 8px solid transparent;
+  border-bottom-color: #0084FF;
+}
+
 .comment-item .comment-main .user-reaction {
   text-align: right;  
 }

@@ -55,6 +55,21 @@ export default {
     //       return `${padZero(year)}-${padZero(month)}-${padZero(date)} ${padZero(hours)}:${padZero(minutes)}`
     //   }
     // },
+    genUpBtn() {
+      return this.$createElement('div', {
+        staticClass: 'comment-up'
+      }, [
+        this.$createElement('span', {
+          staticClass: 'comment-up__btn'
+        }),
+        this.$createElement('span', {
+          staticClass: 'comment-ups',
+          domProps: {
+            innerText: this.content.ups
+          }
+        })
+      ])
+    },
     genReactions(h, text='回复') {
       const children = []
       if (this.content.ups) {
@@ -109,10 +124,21 @@ export default {
   render(h) {
     let children
     const avatar = this.content.avatar || this.url
+    let style = {}
     if (this.side === 'left') {
-      children = [h(VAvatar, {props: {url: avatar, round: '4px'}}), this.genMain(h)]
+      style.marginRight = '16px'
+    }
+    const side = h('div', {
+      staticClass: 'comment-side',
+      style: style
+    }, [
+      h(VAvatar, {props: {url: avatar, round: '3px'}}),
+      this.genUpBtn()
+    ])
+    if (this.side === 'left') {
+      children = [side, this.genMain(h)]
     } else {
-      children = [this.genMain(h), h(VAvatar, {props: {url: avatar, round: '4px'}})]
+      children = [this.genMain(h), side]
     }
     return h('div', {
       staticClass: 'comment-item'
