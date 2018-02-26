@@ -75,11 +75,9 @@ export default {
           }
         }
       }))
-      const title = h('h3', {staticClass: 'tag-list-title' }, '标签列表')
+      const title = h('h3', {staticClass: 'tag-list-title'}, '标签列表')
       const list = h('div', {staticClass: 'tag-list-body'}, children)
-      return h('div', {staticClass: 'tag-list', style: {
-        backgroundColor: '#FFF',
-      }}, [title, list])
+      return h('div', {staticClass: 'tag-list'}, [title, list])
     }
   },
   render(h) {

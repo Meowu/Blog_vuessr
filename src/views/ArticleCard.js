@@ -1,5 +1,6 @@
 import VChip from '../components/Chip/VChip'
 import VIcon from '../components/VIcon'
+import VImage from '../components/VImage'
 import './card.css'
 export default {
   name: "v-article-card",
@@ -125,6 +126,10 @@ export default {
     const meta = this.genMeta(h)
     const text = this.genText(h)
     const title = this.genTitle(h)
+    const children = [title, text, meta]
+    if (this.meta.cover && !!this.meta.cover.trim()) {
+      children.unshift(h(VImage, {props: {url: this.meta.cover}}))
+    }
     // const meta = h('')
     return h('div', {
       staticClass: 'article-card',
@@ -133,6 +138,6 @@ export default {
           console.log('click card.');
         }
       }
-    }, [title, text, meta])
+    }, children)
   }
 }
