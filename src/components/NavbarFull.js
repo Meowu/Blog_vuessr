@@ -86,7 +86,7 @@ export default {
         flexFlow: 'row nowrap',
         fontSize: '18px',
         // justifyContent: 'space-between', borderBottom: '1px solid #dcdcdc',
-        padding: '0 16px'
+        // padding: '0 16px'
       }
       return h('nav', {
         staticClass: 'v-navbar',

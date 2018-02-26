@@ -2,6 +2,8 @@
   width: 100%;
   margin: 90px auto 10px;
   font-size: 14px;
+  box-shadow: 0 1px 3px rgba(26,26,26,.1);
+  border-radius: 2px;
   /* padding: .4rem; */
 }
 @media screen and (min-width: 769px) {

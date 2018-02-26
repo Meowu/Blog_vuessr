@@ -96,7 +96,7 @@ a {
 
 @media screen and (min-width: 1024px) {
   .main {
-    width: 960px;
+    width: 900px;
     margin: 75px auto 0;
   }
 
@@ -154,13 +154,16 @@ a {
 }
 
 .main > .sidebar .tag-list {
-  padding: 0 10px;
+  padding: 15px 10px;
   margin-top: 20px;
+  box-shadow: 0 1px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px 0 rgba(0,0,0,.12);
+  /* border-radius: 4px; */
 }
 
 .main > .sidebar .tag-list-title {
   font-size: 18px;
-  padding: 8px 0;
+  /* padding: 8px 0; */
+  margin-bottom: 15px;
   font-weight: 400;
   color: rgba(0, 0, 0, .8);
 }

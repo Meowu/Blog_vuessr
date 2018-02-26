@@ -14,7 +14,7 @@
 
 .comment-item .comment-side .comment-up {
   margin-top: 10px;
-  padding: 0 8px;
+  /* padding: 0 8px; */
   border-radius: 3px;
   cursor: pointer;
   color: #0084ff;
@@ -33,7 +33,7 @@
 }
 
 .comment-item .comment-side .comment-up .comment-ups {
-  margin-left: 10px;
+  margin-left: .1rem;
 }
 
 .comment-item .comment-main .user-reaction {
