@@ -39,8 +39,11 @@ export default {
     },
     genImage(h, url, alt) {
       const style = {
-        width: '120px',
-        height: '120px',
+        width: '100%',
+        borderRight: '1px solid  #8c8c8c',
+        borderLeft: '1px solid  #8c8c8c',
+        // boxShadow: '1px 0px 1px 1px rgba(0,0,0,.2), -1px 0 1px 1px rgba(0,0,0,.2)',
+        // height: '120px',
         // lineHeight: '',
       }
       return h('img', {
@@ -49,20 +52,20 @@ export default {
           alt: alt || 'v-image'
         },
         // directives: [{
-        //   name: 'hover'
-        // }],
-        style: style
-      },[])
-    }
-  },
-  render(h) {
-    const url = this.url || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' // 1 x 1 透明 gif，避免图片没有地址显示一坨东西。
-    const child = [this.genImage(h, url)]
-    if (this.title) {
-      child.push(this.genTitle(h, this.title))
-    }
-    const style = {
-      border: '1px solid transparent'
+          //   name: 'hover'
+          // }],
+          style: style
+        },[])
+      }
+    },
+    render(h) {
+      const url = this.url || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' // 1 x 1 透明 gif，避免图片没有地址显示一坨东西。
+      const child = [this.genImage(h, url)]
+      if (this.title) {
+        child.push(this.genTitle(h, this.title))
+      }
+      const style = {
+        // border: '1px solid rgba(0,0,0,.2)',
     }
     if (/^\d+$/.test(this.height) && /^\d+$/.test(this.width)) {
       style.width = this.width + 'px',

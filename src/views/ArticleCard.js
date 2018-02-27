@@ -54,7 +54,7 @@ export default {
       let time = new Date(this.meta.post_date).toString()
       time = +new Date(time)
       const style = {
-        fontSize: '15px',
+        fontSize: '18px',
         fontWeight: 600,
         letterSpacing: '-.02em',
         lineHeight: '40px',
