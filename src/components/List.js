@@ -21,7 +21,7 @@ export default {
     const data = {
       staticClass: 'v-list',
     }
-    const children = this.list.map(item => {
+    const list = this.list.map(item => {
       const anchor = h('a', {
         staticClass: 'list-item__name',
         on: {
@@ -42,10 +42,11 @@ export default {
         staticClass: 'list-item',
       }, [anchor, span])
     })
+    const children = [h('ul', data, list)]
     if (this.title + '') {
       children.unshift(this.genTitle(h, this.title))
     }
 
-    return h('ul', data, children)
+    return h('div', {staticClass: 'categories-list'},children) 
   }
 }

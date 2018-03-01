@@ -1,15 +1,22 @@
-.v-list {
+.categories-list {
   width: 100%;
-  padding: 15px;
+  /* padding: 15px; */
   /* border-radius: 4px; */
   font-size: 14px;
   background-color: #FFF;
   box-shadow: 0 1px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px 0 rgba(0,0,0,.12);
 }
 
-.list-title {
-  font-size: 18px;
-  padding: 8px 0;
+
+.v-list {
+  padding: 15px;
+}
+
+.categories-list .list-title {
+  padding: 8px 15px;
+  background-color: #F2F2F2;
+  font-size: 16px;
+  /* padding: 8px 0; */
   font-weight: 400;
   color: rgba(0, 0, 0, .8)
 }
@@ -25,7 +32,7 @@
 }
 
 .list-item__name {
-  color: steelblue;
+  color: #61aeee;
   margin-right: 4px;
   cursor: pointer;
 }

@@ -58,7 +58,7 @@ a {
 }
 
 .full-navbar .v-header .nav-item.is-active, .navbar .v-navbar .nav-item.is-active {
-  color: steelblue;
+  color: #61aeee;
 }
 
 .full-navbar .v-header .nav-item:hover {
@@ -154,17 +154,23 @@ a {
 }
 
 .main > .sidebar .tag-list {
-  padding: 15px;
+  /* padding: 15px; */
   background-color: #FFF;
   margin-top: 20px;
   box-shadow: 0 1px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 1px 0 rgba(0,0,0,.12);
   /* border-radius: 4px; */
 }
 
+.main > .sidebar .tag-list-body {
+  padding: 15px;
+}
+
 .main > .sidebar .tag-list-title {
-  font-size: 18px;
+  font-size: 16px;
   /* padding: 8px 0; */
-  margin-bottom: 15px;
+  background-color: #f2f2f2;
+  padding: 8px 15px;
+  /* margin-bottom: 15px; */
   font-weight: 400;
   color: rgba(0, 0, 0, .8);
 }

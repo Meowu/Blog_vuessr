@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     genSidebar(h, cates) {
-      return h('sidebar', {staticClass: 'sidebar',
+      return h('aside', {staticClass: 'sidebar',
       //   style: {
       //   flex: '1 1 25%',
       //   paddingLeft: '40px',

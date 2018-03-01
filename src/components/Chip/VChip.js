@@ -29,9 +29,9 @@ export default {
     const style = {
       display: 'inline-flex',
       alignItems: 'center',
-      color: '#FEFEFE',
+      // color: '#FEFEFE',
       borderRadius: '4px',
-      backgroundColor: 'rgba(75,76,71,.3)',
+      backgroundColor: '#F2F2F2',
       margin: '4px',
       verticalAlign: 'middle',
       outline: 'none',
@@ -41,8 +41,8 @@ export default {
       staticClass: 'chip',
       style: style,
       on: Object.assign({}, { 
-        mouseenter: e => e.target.style.backgroundColor = 'rgba(75, 76, 71, .6)',
-        mouseleave: e => e.target.style.backgroundColor = 'rgba(75,76,71,.3)',
+        mouseenter: e => e.target.style.backgroundColor = '#E2E2E2',
+        mouseleave: e => e.target.style.backgroundColor = '#F2F2F2',
         }, 
       this.$listeners)
     }
