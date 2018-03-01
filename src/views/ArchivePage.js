@@ -1,3 +1,8 @@
 export default {
-  name: "archive-page"
+  name: "archive-page",
+  render(h) {
+    return h('div', {
+      staticClass: 'articles-archive'
+    })
+  }
 }

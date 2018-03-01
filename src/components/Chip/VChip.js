@@ -8,12 +8,10 @@ export default {
   },
   methods: {
     getContent(h) {
-      // const children = [this.$slots.default]
       const style = {
         height: '28px',
         zIndex: 1,
         fontSize: '14px',
-        // verticalAlign: 'middle',
         padding: '0 12px',
         display: 'inline-flex',
         alignItems: 'center',

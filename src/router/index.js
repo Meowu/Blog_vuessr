@@ -37,7 +37,7 @@ export function createRouter() {
       },
       {
         path: '/about',
-        component: Hello
+        component: AboutPage
       },
       // {
       //   path: '/aboutme',
