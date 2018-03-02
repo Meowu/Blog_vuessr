@@ -57,10 +57,11 @@ export default {
         fontSize: '18px',
         fontWeight: 600,
         letterSpacing: '-.02em',
-        lineHeight: '40px',
+        // lineHeight: '40px',
         padding: '.2em .8em',
         display: 'flex',
         alignItems: 'center',
+        margin: '8px 0',
         cursor: 'pointer',
         justifyContent: 'space-between',
       }
@@ -70,7 +71,7 @@ export default {
         on: { 
           click: () => this.$router.push(`/articles/${this.meta.id}`)
         }
-      }, [h('span', this.meta.title), h('span',{style:{fontSize: '13px', fontWeight: '400', color: 'rgba(0,0,0,.65)', marginRight: '10px'}}, `${this.formatDate(time, 'yyyy-MM-dd')}`)])
+      }, [h('span', this.meta.title), h('span',{style:{fontSize: '13px', fontWeight: '400', color: 'rgba(0,0,0,.65)', marginLeft: '10px', flex: '0 0 68px'}}, `${this.formatDate(time, 'yyyy-MM-dd')}`)])
     },
     genText(h) {
       return h('p', {

@@ -61,6 +61,10 @@ a {
   color: #61aeee;
 }
 
+.v-header .nav-item {
+  color: #7f7f7f;
+}
+
 .full-navbar .v-header .nav-item:hover {
   background-color: aliceblue;
 }

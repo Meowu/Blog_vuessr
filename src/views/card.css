@@ -11,6 +11,8 @@
   font-size: 14px;
   padding: 0 12px;
   width: 100%;
+  line-height: 1.5;
+  color: #515151;
   margin-bottom: 10px;
 }
 .article-card .card-meta {
