@@ -47,11 +47,11 @@ const backgroundColor = {
   Hydrogen: '#0082c8',
   Dull: '#C9D6FF'
 }
-const colors = ['Berimbolo','Vanusa', 'Shadowgrey', 'SlightOceanView', 'SandToBlue','Lawrencium', 'Ohhappiness', 'Delicate', 'Velvet', 'DigitalWater', 'Warm', 'Lithium', 'Hydrogen', '#C9D6FF']
+const colors = ['Berimbolo','Vanusa', 'Shadowgrey', 'SlightOceanView', 'SandToBlue','Lawrencium', 'Ohhappiness', 'Delicate', 'Velvet', 'DigitalWater', 'Warm', 'Lithium', 'Hydrogen', 'Dull']
 
 export default function textToImage(name){
         //设置初始值,防止name为空时程序无法执行
-        var nick = (name || 'Null').charAt(0);
+        var nick = (name || 'Null').charAt(0).toUpperCase();
         var fontSize = 30;
         var fontWeight = 500;
         var canvas = document.createElement('canvas')

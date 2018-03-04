@@ -57,6 +57,10 @@ a {
   text-decoration: none;
 }
 
+.full-navbar .v-header {
+  align-items: center;
+}
+
 .full-navbar .v-header .nav-item.is-active, .navbar .v-navbar .nav-item.is-active {
   color: #61aeee;
 }

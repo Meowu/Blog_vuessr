@@ -95,6 +95,7 @@ const editor = {
               Api.replyComments(this.commentId, this.comment).then(() => {
                 this.refresh().then(() => {
                   this.$bar.finish()
+                  this.close()
                 })
               })
             } else if (this.articleId) {
@@ -103,6 +104,7 @@ const editor = {
                 console.log(this.$parent)
                 this.$parent.getCurrent().then(() => {
                   this.$bar.finish()
+                  this.close()
                 })
               })
             }
