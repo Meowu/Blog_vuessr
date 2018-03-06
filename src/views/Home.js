@@ -9,7 +9,6 @@ export default {
     // store.commit('SET_PARAMS', {page: 1, page_size: 10, tag: '', category: ''})
     console.log('asyncData');
     return Promise.all([store.dispatch('getArticles'), store.dispatch('getCategories'), store.dispatch('getTags')])
-    // return store.dispatch('getArticles')
   },
   data() {
     return {
