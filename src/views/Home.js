@@ -19,10 +19,6 @@ export default {
       ],
     }
   },
-  created() {
-    // this.$store.dispatch('getArticles')
-    console.log('created');
-  },
   computed: {
     articles() {
       return this.$store.state.articles

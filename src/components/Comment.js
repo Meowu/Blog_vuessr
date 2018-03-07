@@ -88,32 +88,9 @@ export default {
         ref: 'up'
       }, children)
     },
-    genReactions(h, text='回复') {
-      const children = []
-      // if (this.content.ups) {
-      //   const likes = h('button', {staticClass: 'comment-likes'}, [h(VIcon, {props: {icon: 'thumbs-up'}}), ])
-      //   children.push(likes)
-      // }
-      // const reply = h('button', {st})
-      const replyBtn = h('button', {
-        staticClass: 'comment-reply',
-        on: {
-          click: () => {
-            // console.log('clicked');
-            // const editor = new VEditor({target: '.article-main .user-reaction'})
-            console.log(this.$el)
-          }
-        }
-      }, '回复')
-      this.reply && children.push(replyBtn)
-      return h('div', {
-        staticClass: 'comment-reaction'
-      }, children)
-    },
     genTime(h, time) {
       let timestamp = new Date(this.content.createdAt).toString()
       timestamp = +new Date(timestamp)
-      // time = new Date()
       return h('time', {
         staticClass: 'comment-time',
         attrs: {datetime: time}

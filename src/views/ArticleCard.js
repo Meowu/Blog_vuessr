@@ -57,7 +57,6 @@ export default {
         fontSize: '18px',
         fontWeight: 600,
         letterSpacing: '-.02em',
-        // lineHeight: '40px',
         padding: '.2em .8em',
         display: 'flex',
         alignItems: 'center',

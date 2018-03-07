@@ -4,7 +4,6 @@
   font-size: 14px;
   box-shadow: 0 1px 3px rgba(26,26,26,.1);
   border-radius: 2px;
-  /* padding: .4rem; */
 }
 @media screen and (min-width: 769px) {
   .article-main {
@@ -31,11 +30,6 @@
   background-color: #FFF;
   /* flex: 0 0 90px; */
 }
-
-/* .article-main .card-tags {
-  background-color: #FFF;
-  padding: 15px;
-} */
 
 .article-main .article-footer {
   background-color: #FFF;

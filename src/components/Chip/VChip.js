@@ -27,7 +27,6 @@ export default {
     const style = {
       display: 'inline-flex',
       alignItems: 'center',
-      // color: '#FEFEFE',
       borderRadius: '4px',
       backgroundColor: '#F2F2F2',
       margin: '4px',
