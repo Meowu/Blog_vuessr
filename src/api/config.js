@@ -7,7 +7,8 @@ const DEFAULT_JSON_HEADER = {
   'Content-Type': 'application/json'
 }
 
-const BASE_URL = 'http://localhost:3000/api/v1'
+const BASE_URL = 'http://joi.im/api/v1'
+// const BASE_URL = 'http://127.0.0.1:3000/api/v1'
 
 export default {
   baseURL: BASE_URL,

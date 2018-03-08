@@ -2,7 +2,6 @@
 import CONFIG from './config'
 import axios from 'axios'
 import intercept from './params'
-// import app from '../entry.client'
 
 
 axios.interceptors.request.use((config) => intercept(config))
@@ -29,16 +28,12 @@ class Api {
   }
 
   request(data) {
-    let config = Object.assign({}, CONFIG) // 这里不能用const，
+    let config = Object.assign({}, CONFIG) 
     data.headers && (config.headers = data.headers)
     config.url = data.url
     config.method = data.method
     config.body = data.params
     axios.default.withCredentials = true
-    // app.$bar.start()
-    // setTimeout(() => {
-    //   app.$bar.finish()
-    // }, 2000);
     return axios(config)
   }
 }
